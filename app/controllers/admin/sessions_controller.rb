@@ -24,10 +24,9 @@ class Admin::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
+  
   def new_guest
-    admin = Admin.find_or_create_by(email: "admin@exmple.com") do |admin|
-      admin.password = SecureRandom.urlsafe_base64
-    end
+    admin = Admin.guest
     sign_in admin
     flash[:notice] = "ゲスト管理人ログインをしました"
     redirect_to root_path
