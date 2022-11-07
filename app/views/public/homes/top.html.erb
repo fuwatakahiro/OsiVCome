@@ -4,7 +4,7 @@
       <h2 class="mb-3">みんなの推しに対しての応援の方法を共有しよう</h2>
       <%= link_to "新規登録", new_customer_registration_path, class: "btn btn-success btn-sm btn-block mb-3 sign_up" %>
       <%= link_to "ログイン", new_customer_session_path, class: "btn btn-info btn-sm btn-block mb-3 sign_in" %>
-      <%= link_to "ゲストログイン",root_path, class: "btn btn-primary btn-sm btn-block mb-3" %>
+      <%= link_to "ゲストログイン",guest_sign_in_path, method: :post, class: "btn btn-primary btn-sm btn-block mb-3" %>
       <%= link_to "管理人ログイン", new_admin_session_path, class: "btn btn-secondary btn-sm btn-block" %>
     </div>
   </div>

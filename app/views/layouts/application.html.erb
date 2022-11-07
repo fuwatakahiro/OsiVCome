@@ -23,10 +23,11 @@
       <% else %>
         <%= link_to "新規登録", new_customer_registration_path %>
         <%= link_to "ログイン", new_customer_session_path %>
-        <%= link_to "使用者ゲストログイン", root_path %>
-        <%= link_to "管理者ゲストログイン", root_path %>
+        <%= link_to "使用者ゲストログイン", guest_sign_in_path, method: :post %>
+        <%= link_to "管理者ゲストログイン", admin_guest_sign_in_path, method: :post %>
       <% end %>
     </header>
+    <%= flash[:notice] %>
     <%= yield %>
   </body>
 </html>

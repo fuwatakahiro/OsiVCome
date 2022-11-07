@@ -29,6 +29,17 @@ class Public::SessionsController < Devise::SessionsController
   end
 
   def after_sign_out_path_for(resource)
+    flash[:notice] = "ログアウトしました"
     root_path
+  end
+
+  def new_guest
+    customer = Customer.find_or_create_by(email: "guest@gmail.com") do |customer|
+      customer.name = "ゲストユーザー"
+      customer.password = SecureRandom.urlsafe_base64
+    end
+    sign_in customer
+    flash[:notice] = "ゲストログインしました"
+    redirect_to root_path
   end
 end
