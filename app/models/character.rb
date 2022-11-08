@@ -1,6 +1,5 @@
 class Character < ApplicationRecord
   has_one_attached :character_image
-  
   def get_character_image(width, height)
     unless character_image.attached?
       file_path = Rails.root.join('app/assets/images/no_image.jpg')
