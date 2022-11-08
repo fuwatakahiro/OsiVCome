@@ -14,8 +14,12 @@ Rails.application.routes.draw do
   devise_scope  :admin do
     post "/admin/guest_sign_in" => "admin/sessions#new_guest"
   end
+  
+   scope module: :public do
+     resources :characters, only: [:index, :show]
+   end
    namespace :admin do
     resources :characters, except: :destroy
-  end
+   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

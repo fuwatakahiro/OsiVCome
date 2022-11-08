@@ -15,7 +15,7 @@
       <% if customer_signed_in? %>
         <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
         <%= link_to "ユーザー一覧", root_path %>
-        <%= link_to"キャラクター一覧", root_path %>
+        <%= link_to"キャラクター一覧", characters_path %>
         <%= link_to "問い合わせ", root_path %>
         <%= link_to "ユーザー編集",root_path %>
       <% elsif admin_signed_in? %>
