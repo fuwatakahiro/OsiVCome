@@ -60,6 +60,7 @@ class Public::RegistrationsController < Devise::RegistrationsController
   #   super(resource)
   # end
    def after_sign_up_path_for(resource)
+    flash[:notice] = "ユーザーを作成しました"
     root_path
    end
    def check_guest
