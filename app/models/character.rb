@@ -3,13 +3,14 @@ class Character < ApplicationRecord
   validates :greeting,presence: true
   validates :genre,presence: true
   validates :reference_destination,presence: true
+  validates :character_image,presence: true
   has_one_attached :character_image
+
   def get_character_image(width, height)
-    unless character_image.attached?
-      file_path = Rails.root.join('app/assets/images/no_image.jpg')
-      character_image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
-    else
-        character_image.variant(resize_to_fill: [width, height], gravity: :center).processed
-    end
+    # unless character_image.attached?
+    #   file_path = Rails.root.join('app/assets/images/no_image.jpeg')
+    #   character_image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
+    # end
+    character_image.variant(resize_to_limit: [width, height]).processed
   end
 end
