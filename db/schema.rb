@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_07_002108) do
+ActiveRecord::Schema.define(version: 2022_11_08_032003) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -54,17 +54,9 @@ ActiveRecord::Schema.define(version: 2022_11_07_002108) do
 
   create_table "characters", force: :cascade do |t|
     t.string "name", null: false
-    t.string "reeting", null: false
+    t.string "greeting", null: false
     t.string "genre", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "comments", force: :cascade do |t|
-    t.integer "customer_id", null: false
-    t.integer "character_id", null: false
-    t.string "character_name", null: false
-    t.text "content", null: false
+    t.text "reference_destination", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -81,20 +73,6 @@ ActiveRecord::Schema.define(version: 2022_11_07_002108) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_customers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
-  end
-
-  create_table "favorites", force: :cascade do |t|
-    t.integer "customer_id", null: false
-    t.integer "comment_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "relationships", force: :cascade do |t|
-    t.integer "follower_id", null: false
-    t.integer "followed_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
