@@ -4,20 +4,20 @@
     <table class="table">
       <thead>
         <tr>
-          <th>画像</th>
+          <th>id</th>
           <th>名前</th>
-          <th>コメント数</th>
-          <th>いいね数</th>
+          <th>メールアドレス</th>
+          <th>ステータス</th>
           <th></th>
         </tr>
       </thead>
       <tbody>
         <% @customers.each do |customer| %>
           <tr>
-            <td><%= image_tag customer.get_profile_image(100,100) %></td>
-            <td><%= link_to customer.name,customer_path(customer) %></td>
-            <td><%#=  %></td>
-            <td><%#=  %></td>
+            <td><%= customer.id %></td>
+            <td><%= link_to customer.name, admin_customer_path(customer) %></td>
+            <td><%= customer.email %></td>
+            <td><%= customer.is_deleted %></td>
             <td></td>
           </tr>
         <% end %>

@@ -19,7 +19,6 @@ class Public::CustomersController < ApplicationController
   end
   private
   def customer_params
-    params.require(:customer).permit(:name, :email, :profile_image)
-    # 画像引用先を追加する
+    params.require(:customer).permit(:name, :email, :profile_image, :is_deleted)
   end
 end

@@ -1,12 +1,4 @@
-<% if @character.errors.any? %>
-  <div id="error_explanation">
-    <ul>
-      <% @character.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
+<%= render 'layouts/errors', obj: @character %>
 <%= form_with model: @character, url: admin_characters_path, method: :post do |f| %>
   <%= f.label :画像 %>
   <%= f.file_field :character_image, accept: "image/*" %><br>
