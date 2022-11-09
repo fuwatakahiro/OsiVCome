@@ -1,0 +1,13 @@
+<h3>ユーザー詳細</h3>
+<%= image_tag  @customer.get_profile_image(100,200) %>
+<sapn>名前</sapn>
+<%= @customer.name %><br>
+<span>コメント数</span>
+<!--<%#= @customer. %><br>-->
+<span>いいね数</span>
+<%#= @customer. %><br>
+<span>フォロー数</span>
+<%#= @customer. %><br>
+<span>フォロワー数</span>
+<%#= @customer. %><br>
+<%= link_to "編集", edit_customer_path(@customer)

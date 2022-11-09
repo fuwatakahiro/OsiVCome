@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+    <h3>ユーザー一覧</h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>画像</th>
+          <th>名前</th>
+          <th>コメント数</th>
+          <th>いいね数</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <% @customers.each do |customer| %>
+            <td><%= image_tag customer.get_profile_image(100,100) %></td>
+            <td><%= link_to customer.name,customer_path(customer) %></td>
+            <td><%#=  %></td>
+            <td><%#=  %></td>
+            <td></td>
+          <% end %>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
