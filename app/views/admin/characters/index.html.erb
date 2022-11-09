@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <h3>キャラクター一覧</h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>名前</th>
+          <th>挨拶</th>
+          <th>ジャンル</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <% @characters.each do |character| %>
+            <td><%= character.id %></td>
+            <td><%= link_to character.name,  admin_character_path(character) %></td>
+            <td><%= character.greeting %></td>
+            <td><%= character.genre %></td>
+          <% end %>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
