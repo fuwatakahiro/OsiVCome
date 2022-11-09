@@ -1,4 +1,8 @@
 class Character < ApplicationRecord
+  validates :name,presence: true
+  validates :greeting,presence: true
+  validates :genre,presence: true
+  validates :reference_destination,presence: true
   has_one_attached :character_image
   def get_character_image(width, height)
     unless character_image.attached?

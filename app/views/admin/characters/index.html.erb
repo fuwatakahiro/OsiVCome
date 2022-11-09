@@ -11,14 +11,14 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <% @characters.each do |character| %>
+        <% @characters.each do |character| %>
+          <tr>
             <td><%= character.id %></td>
             <td><%= link_to character.name,  admin_character_path(character) %></td>
             <td><%= character.greeting %></td>
             <td><%= character.genre %></td>
-          <% end %>
-        </tr>
+          </tr>
+        <% end %>
       </tbody>
     </table>
   </div>
