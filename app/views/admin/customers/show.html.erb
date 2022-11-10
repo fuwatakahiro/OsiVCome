@@ -14,7 +14,7 @@
         </tr>
         <tr>
           <th>コメント数</th>
-          <th></th>
+          <th><%= @customer.comments.count %>件</th>
         </tr>
         <tr>
           <th>フォロー数</th>
@@ -39,10 +39,12 @@
           </tr>
         </thead>
         <tbody>
+          <% @comments.each do |comment| %>
           <tr>
-            <th></th>
-            <th></th>
+            <th><%= link_to comment.character.name, admin_character_path(comment.character.id) %></th>
+            <th><%= comment.content %></th>
           </tr>
+          <% end %>
         </tbody>
       </table>
     </div>
