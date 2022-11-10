@@ -61,12 +61,12 @@ class Public::RegistrationsController < Devise::RegistrationsController
   # end
    def after_sign_up_path_for(resource)
     flash[:notice] = "ユーザーを作成しました"
-    root_path
+   characters_path
    end
    def check_guest
     if resource.email == "guest@gmail.com"
      flash[:notice]="ゲストログイン編集・削除できません"
-     redirect_to root_path
+     redirect_to characters_path
     end
    end
 end

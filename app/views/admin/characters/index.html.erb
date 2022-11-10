@@ -1,13 +1,14 @@
 <div class="container">
   <div class="row">
     <h3>キャラクター一覧</h3>
-    <table class="table">
+    <table class="table table-hover">
       <thead>
         <tr>
           <th>id</th>
           <th>名前</th>
           <th>挨拶</th>
           <th>ジャンル</th>
+          <th>コメント数</th>
         </tr>
       </thead>
       <tbody>
@@ -17,6 +18,7 @@
             <td><%= link_to character.name,  admin_character_path(character) %></td>
             <td><%= character.greeting %></td>
             <td><%= character.genre %></td>
+            <th></th>
           </tr>
         <% end %>
       </tbody>

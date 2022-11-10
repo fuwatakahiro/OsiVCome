@@ -1,27 +1,27 @@
 <div class='container px-5 px-sm-0'>
   <div class='row'>
     <div class='col-md-3 mt-3'>
-      <h3>キャラクター詳細</h3>
+      <h3><%=@customer.name %>詳細</h3>
       <table class='table'>
-        <tr><%= image_tag  @character.get_character_image(120,120) %></tr>
+        <tr><%= image_tag  @customer.get_profile_image(120,120) %></tr>
         <tr>
           <th>名前</th>
-          <th><%= @character.name %></th>
+          <th><%= @customer.name %></th>
         </tr>
         <tr>
-          <th>挨拶</th>
-          <th><%= @character.greeting %></th>
-        </tr>
-        <tr>
-          <th>ジャンル</th>
-          <th><%= @character.genre %></th>
-        </tr>
-        <tr>
-          <th>画像引用先</th>
-          <th><%= @character.reference_destination %></th>
+          <th>自己紹介</th>
+          <th><%= @customer.introduction %></th>
         </tr>
         <tr>
           <th>コメント数</th>
+          <th></th>
+        </tr>
+        <tr>
+          <th>フォロー数</th>
+          <th></th>
+        </tr>
+        <tr>
+          <th>フォロワー数</th>
           <th></th>
         </tr>
       </table>
@@ -32,7 +32,7 @@
         <thead>
           <tr>
             <th>キャラクター名</th>
-            <th>推し活動</th>
+            <th>コメント内容</th>
           </tr>
         </thead>
         <tbody>

@@ -29,6 +29,6 @@ class Admin::SessionsController < Devise::SessionsController
     admin = Admin.guest
     sign_in admin
     flash[:notice] = "ゲスト管理人ログインをしました"
-    redirect_to root_path
+    redirect_to admin_customers_path
   end
 end
