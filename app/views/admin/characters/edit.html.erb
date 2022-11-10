@@ -1,16 +1,34 @@
-<%= render 'layouts/errors', obj: @character %>
-<%= form_with model: @character, url: admin_character_path, method: :patch do |f| %>
-  <%= f.label :画像 %>
-  <%= f.file_field :character_image, accept: "image/*" %><br>
-  <%= f.label :名前 %>
-  <%= f.text_field :name %><br>
-  <%= f.label :挨拶 %>
-  <%= f.text_field :greeting %><br>
-  <%= f.label :ジャンル %>
-  <%= f.text_field :genre %><br>
-  <%= f.label :引用先 %>
-  <%= f.text_area :reference_destination %><br>
-  <%= f.submit "更新" %>
-<% end %>
-
+<div class="container px-0">
+  <div class="row mt-3">
+    <h3>キャラクター編集</h3>
+  </div>
+  <div class="row d-flex justify-content-center">
+    <%= form_with model: @character, url: admin_character_path, method: :patch do |f| %>
+    <%= render 'layouts/errors', obj: @character %>
+      <div class="form-group row">
+        <%= f.label :画像,class: "col-lg-3 col-form-label" %>
+        <%= f.file_field :character_image, accept: "image/*", class: "col-lg-9" %>
+      </div>
+      <div class="row form-group">
+        <%= f.label :名前,class: "col-lg-3 col-form-label" %>
+        <%= f.text_field :name, class: "col-lg-9 form-control" %>
+      </div>
+      <div class="row form-group">
+        <%= f.label :挨拶, class: "col-lg-3 col-form-label" %>
+        <%= f.text_field :greeting, class: "col-lg-9 form-control" %>
+      </div>
+      <div class="row form-group">
+        <%= f.label :ジャンル, class: "col-lg-3 col-form-label" %>
+        <%= f.text_field :genre, class: "col-lg-9 form-control" %>
+      </div>
+      <div class="row form-group">
+        <%= f.label :引用先, class: "col-lg-3 col-form-labe" %>
+        <%= f.text_area :reference_destination, class: "col-lg-9 form-control" %>
+      </div>
+      <div class="text-center actions">
+        <%= f.submit "更新", class: "col-lg-5 btn btn-success" %>
+      </div>
+    <% end %>
+  </div>
+</div>
 

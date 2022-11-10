@@ -1,14 +1,14 @@
 <div class="container">
   <div class="row">
     <h3>ユーザー一覧</h3>
-    <table class="table">
+    <table class="table table-hover">
       <thead>
         <tr>
           <th>id</th>
           <th>名前</th>
           <th>メールアドレス</th>
+          <th>コメント数</th>
           <th>ステータス</th>
-          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -17,8 +17,13 @@
             <td><%= customer.id %></td>
             <td><%= link_to customer.name, admin_customer_path(customer) %></td>
             <td><%= customer.email %></td>
-            <td><%= customer.is_deleted %></td>
             <td></td>
+            <% if customer.is_deleted == false %>
+              <td class="text-success font-weight-bold">有効</td>
+            <% else %>
+              <td class="text-secondary font-weight-bold">退会</td>
+            <% end %>
+            <!--<td><%#= customer.is_deleted %></td>-->
           </tr>
         <% end %>
       </tbody>

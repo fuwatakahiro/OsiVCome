@@ -10,13 +10,12 @@ class Admin::CustomersController < ApplicationController
   end
   def update
     @customer=Customer.find(params[:id])
-     @customer.update!(is_deleted: true)
-     reset_session
+     @customer.update(customer_params)
       flash[:notice] = "ユーザーを更新しました"
       redirect_to admin_customer_path(@customer)
   end
   private
-  def cutomer_params
-    params.require(:customer).permit(:name,:email, :profile_image, :is_deleted)
+  def customer_params
+    params.require(:customer).permit(:name,:email, :profile_image, :is_deleted, :profile_image)
   end
 end

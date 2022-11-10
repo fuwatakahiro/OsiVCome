@@ -1,5 +1,47 @@
-<%= image_tag  @character.get_character_image(100,200) %>
-<%= @character.name %><br>
-<%= @character.greeting %><br>
-<%= @character.genre %><br>
-<%= @character.reference_destination %><br>
+<div class='container px-5 px-sm-0'>
+  <div class='row'>
+    <div class='col-md-3 mt-3'>
+      <h3>キャラクター詳細</h3>
+      <table class='table'>
+        <tr><%= image_tag  @character.get_character_image(120,120) %></tr>
+        <tr>
+          <th>名前</th>
+          <th><%= @character.name %></th>
+        </tr>
+        <tr>
+          <th>挨拶</th>
+          <th><%= @character.greeting %></th>
+        </tr>
+        <tr>
+          <th>ジャンル</th>
+          <th><%= @character.genre %></th>
+        </tr>
+        <tr>
+          <th>画像引用先</th>
+          <th><%= @character.reference_destination %></th>
+        </tr>
+        <tr>
+          <th>コメント数</th>
+          <th></th>
+        </tr>
+      </table>
+    </div>
+    <div class='col-md-8 offset-md-1'>
+      <h3 class="mt-3">コメント一覧</h3>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>キャラクター名</th>
+            <th>推し活動</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th></th>
+            <th></th>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
