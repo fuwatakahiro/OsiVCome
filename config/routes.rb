@@ -16,7 +16,9 @@ Rails.application.routes.draw do
   end
 
    scope module: :public do
-     resources :characters, only: [:index, :show]
+     resources :characters, only: [:index, :show] do
+       resources :comments, only:[:create, :destroy]
+     end
      resources :customers, only: [:index, :show, :edit, :update]
    end
    namespace :admin do
