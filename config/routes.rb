@@ -21,8 +21,13 @@ Rails.application.routes.draw do
          resource :favorites, only:[:create, :destroy]
        end
      end
-     resources :customers, only: [:index, :show, :edit, :update]
+     resources :customers, only: [:index, :show, :edit, :update] do
+       resource :relationships, only: [:create, :destroy]
+  	   get 'followings' => 'relationships#followings', as: 'followings'
+	   get 'followers' => 'relationships#followers', as: 'followers'
+     end
      get "/search" => "searches#search"
+     
    end
    namespace :admin do
      resources :characters, except: :destroy
