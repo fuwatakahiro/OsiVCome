@@ -1,0 +1,10 @@
+<div class="row d-flex flex-wrap">
+  <% @customers.each do |customer| %>
+    <div class=" col-4 flex-wrap">
+        <%= image_tag customer.get_profile_image(200, 200) %>
+        <p class="text-left text-dark"><span><%= customer.name %></span></p>
+        <p class="text-left text-dark"><%= customer.greeting %></p>
+      <% end %>
+    </div>
+  <% end %>
+</div>

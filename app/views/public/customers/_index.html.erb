@@ -13,9 +13,11 @@
             <tr>
               <td><%= image_tag customer.get_profile_image(75,75) %></td>
               <td><%= link_to customer.name.truncate(13),customer_path(customer) %></td>
+              <td><%= customer.comments.count %>件</td>
               <td><%#=  %></td>
-              <td><%#=  %></td>
-              <td></td>
+              <td>
+                <%= render "public/relationships/btn", customer: customer %>
+              </td>
             </tr>
           <% end %>
         </tbody>
