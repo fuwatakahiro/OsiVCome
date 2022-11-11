@@ -5,7 +5,7 @@ class Customer < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
-  
+
   validates :name,presence: true
   validates :email, presence: true
   validates :introduction, length: { maximum: 50 }
@@ -27,5 +27,8 @@ class Customer < ApplicationRecord
       customer.name = "ゲストユーザー"
       customer.password = SecureRandom.urlsafe_base64
     end
+  end
+  def self.search_for(content)
+    Customer.where("name LIKE?", "%"+content+"%")
   end
 end

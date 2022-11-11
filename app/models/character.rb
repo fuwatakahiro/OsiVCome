@@ -14,4 +14,7 @@ class Character < ApplicationRecord
     end
     character_image.variant(resize_to_fill: [width, height], gravity: :center).processed
   end
+  def self.search_for(content)
+    Character.where("name LIKE?", "%#{content}%")
+  end
 end
