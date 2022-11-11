@@ -2,24 +2,14 @@
   <div class="row py-4">
     <div class="col-3">
       <div class="top-genres mt-3">
-        
+
       </div>
     </div>
     <div class="col-9">
       <div class="row">
         <h3 class="col-md-5">キャラクター一覧</h3>
       </div>
-      <div class="row d-flex flex-wrap">
-        <% @characters.each do |character| %>
-          <div class=" col-3 flex-wrap">
-            <%= link_to character_path(character),class: "top-link" do %>
-              <%= image_tag character.get_character_image(150, 150) %>
-              <p class="text-left text-dark"><span><%= character.name %></span></p>
-              <p class="text-left text-dark"><%= character.greeting %></p>
-            <% end %>
-          </div>
-        <% end %>
-      </div>
+      <%= render "index", characters: @characters %>
     </div>
   </div>
 </div>

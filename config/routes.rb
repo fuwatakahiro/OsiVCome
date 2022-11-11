@@ -22,6 +22,7 @@ Rails.application.routes.draw do
        end
      end
      resources :customers, only: [:index, :show, :edit, :update]
+     get "/search" => "searches#search"
    end
    namespace :admin do
      resources :characters, except: :destroy
