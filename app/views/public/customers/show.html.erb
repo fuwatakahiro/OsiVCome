@@ -25,7 +25,9 @@
           <th><%= link_to @customer.followings.count, customer_followings_path(@customer.id) %>人</th>
         </tr>
       </table>
-      <%= render "public/relationships/btn", customer: @customer %>
+      <div id="relationship_buttons_<%= @customer.id %>">
+        <%= render "public/relationships/btn", customer: @customer %>
+      </div>
     </div>
     <div class='col-md-7 offset-md-1'>
       <h3 class="mt-3">コメント一覧</h3>

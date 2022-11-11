@@ -15,7 +15,7 @@
               <td><%= link_to customer.name.truncate(13),customer_path(customer) %></td>
               <td><%= customer.comments.count %>件</td>
               <td><%#=  %></td>
-              <td>
+              <td id="relationship_buttons_<%= customer.id %>">
                 <%= render "public/relationships/btn", customer: customer %>
               </td>
             </tr>
