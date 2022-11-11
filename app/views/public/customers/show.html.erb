@@ -34,6 +34,7 @@
             <th>キャラクター名</th>
             <th>コメント内容</th>
             <th></th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -41,7 +42,10 @@
           <tr>
             <th><%= comment.character.name %></th>
             <th><%= comment.content %></th>
-            <th><%= link_to "削除", character_comment_path(comment.character.id, comment.id), method: :delete %></th>
+            <% if comment.customer.id == current_customer.id %>
+              <th><%= link_to "削除", character_comment_path(comment.character.id, comment.id), method: :delete %></th>
+            <% end %>
+            
           </tr>
           <% end %>
         </tbody>

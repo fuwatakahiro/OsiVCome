@@ -17,7 +17,9 @@ Rails.application.routes.draw do
 
    scope module: :public do
      resources :characters, only: [:index, :show] do
-       resources :comments, only:[:create, :destroy]
+       resources :comments, only:[:create, :destroy] do
+         resource :favorites, only:[:create, :destroy]
+       end
      end
      resources :customers, only: [:index, :show, :edit, :update]
    end
