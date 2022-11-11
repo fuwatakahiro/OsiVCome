@@ -42,19 +42,9 @@
             <tr>
               <th><%= comment.customer.name.truncate(13) %></th>
               <th><%= comment.content.truncate(10) %></th>
-              <% if comment.favorited_by?(current_customer) %>
-                <th>
-                  <%= link_to character_comment_favorites_path(comment.character.id, comment.id), method: :delete do %>
-                    ♥<%= comment.favorites.count %>いいね
-                  <% end %>
-                </th>
-              <% else %>
-                <th>
-                  <%= link_to character_comment_favorites_path(comment.character.id, comment.id), method: :post do %>
-                    ♥<%= comment.favorites.count %>いいね
-                  <% end %>
-                </th>
-              <% end %>
+              <th class="favorite_buttons_<%= comment.id %>">
+                <%= render "public/favorites/favorite", customer: current_customer, comment: comment %>
+              </th>
               <% if comment.customer_id ==  current_customer.id %>
                 <th><%= link_to "削除", character_comment_path(comment.character.id, comment.id), method: :delete %></th>
               <% end %>
