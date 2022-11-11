@@ -1,0 +1,2 @@
+$(".destroy_btn_<%= @comment.id %>").html("<%= j(render "public/comments/destroy", comment: comment %>");
+$(".destroy_btn_<%= @comment.id %>").val("");

@@ -45,23 +45,15 @@
               <th class="favorite_buttons_<%= comment.id %>">
                 <%= render "public/favorites/favorite", customer: current_customer, comment: comment %>
               </th>
-              <% if comment.customer_id ==  current_customer.id %>
-                <th><%= link_to "削除", character_comment_path(comment.character.id, comment.id), method: :delete %></th>
-              <% end %>
+              <th class="destroy_btn_<%= comment.id %>">
+                <%= render "public/comments/destroy", comment: comment %>
+              </th>
             </tr>
           <% end %>
         </tbody>
       </table>
-      <div>
-        <%= form_with model: @comment, url: character_comments_path(@character.id), method: :post do |f| %>
-          <% if @character.name == "その他" %>
-            <%= f.text_field :character_name %>
-          <% else %>
-            <%= f.hidden_field :character_name, :value => @character.name %>
-          <% end %>
-          <%= f.text_area :content, class: "form-control" %>
-          <p class="row mt-3"><%= f.submit "コメント作成", class: "col-4 mx-auto" %></p>
-        <% end %>
+      <div class="comment_form_<%= @comment.id %>">
+        <%= render "public/comments/comment", comment: @comment, character: @character %>
       </div>
     </div>
   </div>
