@@ -36,6 +36,7 @@
           <tr>
             <th>キャラクター名</th>
             <th>コメント内容</th>
+            <th>いいね数</th>
           </tr>
         </thead>
         <tbody>
@@ -43,6 +44,7 @@
           <tr>
             <th><%= link_to comment.character.name, admin_character_path(comment.character.id) %></th>
             <th><%= comment.content %></th>
+            <th class="text-danger"> ♥<%= comment.favorites.count %>いいね</th>
           </tr>
           <% end %>
         </tbody>
