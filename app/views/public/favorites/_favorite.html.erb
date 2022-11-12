@@ -1,9 +1,9 @@
 <% if comment.favorited_by?(customer) %>
-  <%= link_to character_comment_favorites_path(comment.character.id, comment.id), remote: true, method: :delete do %>
+  <%= link_to character_comment_favorites_path(comment.character.id, comment.id), remote: true, method: :delete, class: "text-danger" do %>
     ♥<%= comment.favorites.count %>いいね
   <% end %>
 <% else %>
-  <%= link_to character_comment_favorites_path(comment.character.id, comment.id), remote: true, method: :post do %>
+  <%= link_to character_comment_favorites_path(comment.character.id, comment.id), remote: true, method: :post, class: "text-dark" do %>
     ♥<%= comment.favorites.count %>いいね
   <% end %>
 <% end %>
