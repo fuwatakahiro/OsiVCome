@@ -28,40 +28,11 @@
     </div>
     <div class='col-md-7 offset-md-1'>
       <h3 class="mt-3">コメント一覧</h3>
-      <table class="table">
-        <thead>
-          <tr>
-            <th>投稿者</th>
-            <th>推し活動</th>
-            <th></th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @comments.each do |comment| %>
-            <tr>
-              <th><%= comment.customer.name.truncate(13) %></th>
-              <th><%= comment.content.truncate(10) %></th>
-              <th class="favorite_buttons_<%= comment.id %>">
-                <%= render "public/favorites/favorite", customer: current_customer, comment: comment %>
-              </th>
-              <% if comment.customer_id ==  current_customer.id %>
-                <th><%= link_to "削除", character_comment_path(comment.character.id, comment.id), method: :delete %></th>
-              <% end %>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-      <div>
-        <%= form_with model: @comment, url: character_comments_path(@character.id), method: :post do |f| %>
-          <% if @character.name == "その他" %>
-            <%= f.text_field :character_name %>
-          <% else %>
-            <%= f.hidden_field :character_name, :value => @character.name %>
-          <% end %>
-          <%= f.text_area :content, class: "form-control" %>
-          <p class="row mt-3"><%= f.submit "コメント作成", class: "col-4 mx-auto" %></p>
-        <% end %>
+      <div class="row" id="comment_list">
+        <%= render "public/comments/comment_list", comments: @comments %>
+      </div>
+      <div class="comment_form">
+        <%= render "public/comments/comment", comment: @comment, character: @character %>
       </div>
     </div>
   </div>

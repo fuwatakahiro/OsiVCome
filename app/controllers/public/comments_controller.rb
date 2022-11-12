@@ -1,18 +1,16 @@
 class Public::CommentsController < ApplicationController
   def create
     @character = Character.find(params[:character_id])
-    @comments = @character.comments
     @comment = current_customer.comments.new(comment_params)
     @comment.character_id = @character.id
     @comment.save
-    redirect_back  fallback_location: root_path
+    @comments = @character.comments
   end
   def destroy
     @character = Character.find(params[:character_id])
-    @comments = @character.comments
     @comment = Comment.find_by(id: params[:id], character_id: params[:character_id])
     @comment.destroy
-    redirect_back fallback_location: root_path
+    @comments = @character.comments
   end
 
   private
