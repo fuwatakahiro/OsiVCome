@@ -17,6 +17,7 @@ class Customer < ApplicationRecord
   def active_for_authentication?
     super && !is_deleted
   end
+
   def get_profile_image(width, height)
     unless profile_image.attached?
       file_path = Rails.root.join('app/assets/images/no_image.jpeg')
@@ -31,6 +32,7 @@ class Customer < ApplicationRecord
       customer.password = SecureRandom.urlsafe_base64
     end
   end
+
   def self.search_for(content)
     Customer.where("name LIKE?", "%"+content+"%")
   end

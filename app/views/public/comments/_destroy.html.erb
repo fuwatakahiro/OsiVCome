@@ -1,3 +1,0 @@
-<% if comment.customer_id ==  current_customer.id %>
-  <%= link_to "削除", character_comment_path(comment.character.id, comment.id),remote: true, method: :delete %>
-<% end %>

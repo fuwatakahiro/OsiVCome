@@ -1,2 +1,2 @@
-$(".comment_form_<%= @comment.id %>").html("<%= j(render "public/comments/comment", comment: @comment, character: @character) %>");
-$(".comment_form_<%= @comment.id %>").val("");
+$("#comment_list").html("<%= j(render "public/comments/comment_list", comments: @comments) %>");
+$(".form-control").val("");
