@@ -3,6 +3,7 @@
 class Public::RegistrationsController < Devise::RegistrationsController
   before_action :configure_sign_up_params, only: [:create]
   before_action :configure_account_update_params, only: [:update]
+  before_action :check_guest, only: :update
 
   # GET /resource/sign_up
   # def new
@@ -65,8 +66,8 @@ class Public::RegistrationsController < Devise::RegistrationsController
    end
    def check_guest
     if resource.email == "guest@gmail.com"
-     flash[:notice]="ゲストログイン編集・削除できません"
-     redirect_to characters_path
+     flash[:notice]="ゲストログイン編集できません"
+     redirect_to customers_path
     end
    end
 end
