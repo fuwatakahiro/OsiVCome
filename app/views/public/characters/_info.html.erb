@@ -1,0 +1,23 @@
+<table class='table'>
+  <tr><%= image_tag  character.get_character_image(120,120) %></tr>
+  <tr>
+    <th>名前</th>
+    <th><%= character.name %></th>
+  </tr>
+  <tr>
+    <th>挨拶</th>
+    <th><%= character.greeting %></th>
+  </tr>
+  <tr>
+    <th>ジャンル</th>
+    <th><%= character.genre %></th>
+  </tr>
+  <tr>
+    <th>画像引用先</th>
+    <th><%= character.reference_destination %></th>
+  </tr>
+  <tr>
+    <th>コメント数</th>
+    <th><%= comments.count %>件</th>
+  </tr>
+  </table>
