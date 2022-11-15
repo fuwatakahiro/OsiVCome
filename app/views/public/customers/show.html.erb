@@ -26,7 +26,6 @@
             <% if comment.customer.id == current_customer.id %>
               <th><%= link_to "削除", character_comment_path(comment.character.id, comment.id), method: :delete %></th>
             <% end %>
-
           </tr>
           <% end %>
         </tbody>
