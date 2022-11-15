@@ -1,4 +1,5 @@
 class Public::CustomersController < ApplicationController
+  before_action :check_guest, only: :update
   def index
     @customers = Customer.all
   end
@@ -21,5 +22,11 @@ class Public::CustomersController < ApplicationController
   private
   def customer_params
     params.require(:customer).permit(:name, :email, :profile_image, :is_deleted, :introduction)
+  end
+  def check_guest
+    if current_customer.email == "guest@gmail.com"
+     flash[:notice]="ゲストログイン編集できません"
+     redirect_to customers_path
+    end
   end
 end
