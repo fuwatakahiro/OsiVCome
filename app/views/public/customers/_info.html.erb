@@ -3,7 +3,7 @@
         <tr><%= image_tag  customer.get_profile_image(120,120) %></tr>
         <tr>
           <th>名前</th>
-          <th><%= link_to customer.name, customer_path(customer.id) %></th>
+          <th><%= customer.name %></th>
         </tr>
         <tr>
           <th>自己紹介</th>
