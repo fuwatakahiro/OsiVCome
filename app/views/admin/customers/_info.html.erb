@@ -22,4 +22,12 @@
     <th>フォロワー数</th>
     <th class="followed-count"><%= render "public/customers/follower", customer: customer %></th>
   </tr>
+  <tr>
+    <th>フォロワー数</th>
+    <% if customer.is_deleted == false %>
+      <td class="text-success font-weight-bold">有効</td>
+    <% else %>
+      <td class="text-secondary font-weight-bold">退会</td>
+    <% end %>
+  </tr>
 </table>
