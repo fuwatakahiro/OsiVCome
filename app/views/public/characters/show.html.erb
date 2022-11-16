@@ -22,7 +22,9 @@
         </tr>
         <tr>
           <th>コメント数</th>
-          <th><%= @comments.count %>件</th>
+          <th class="comment-count">
+            <%= render "public/comments/count", comments: @comments %>
+          </th>
         </tr>
       </table>
     </div>
