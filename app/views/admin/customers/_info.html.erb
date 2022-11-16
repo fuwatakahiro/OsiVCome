@@ -1,0 +1,33 @@
+<table class='table'>
+  <tr><%= image_tag  customer.get_profile_image(120,120) %></tr>
+  <tr>
+    <th>名前</th>
+    <th><%= customer.name %></th>
+  </tr>
+  <tr>
+    <th>自己紹介</th>
+    <th><%= customer.introduction %></th>
+  </tr>
+  <tr>
+  <th>コメント数</th>
+    <th><%= customer.comments.count %>件</th>
+  </tr>
+  <tr>
+    <th>フォロー数</th>
+    <th class="followes-count">
+      <%= render "public/customers/following", customer: customer %>
+    </th>
+  </tr>
+  <tr>
+    <th>フォロワー数</th>
+    <th class="followed-count"><%= render "public/customers/follower", customer: customer %></th>
+  </tr>
+  <tr>
+    <th>フォロワー数</th>
+    <% if customer.is_deleted == false %>
+      <td class="text-success font-weight-bold">有効</td>
+    <% else %>
+      <td class="text-secondary font-weight-bold">退会</td>
+    <% end %>
+  </tr>
+</table>
