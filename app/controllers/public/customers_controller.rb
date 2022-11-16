@@ -1,7 +1,7 @@
 class Public::CustomersController < ApplicationController
   before_action :check_guest, only: :update
   def index
-    @customers = Customer.all
+    @customers = Customer.page(params[:page])
     if params[:rank] == 'desc'
       # 投稿のコメント数ランキング
       customer_all = Customer.all.order('id desc').ids

@@ -1,6 +1,6 @@
 class Admin::CharactersController < ApplicationController
   def index
-    @characters = Character.all
+    @characters = Character.page(params[:page]).per(10)
   end
 
   def new

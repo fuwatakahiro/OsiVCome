@@ -1,11 +1,11 @@
 class Public::CharactersController < ApplicationController
   def index
-    @characters = Character.all
+    @characters = Character.page(params[:page]).per(8)
   end
   def show
     @character = Character.find(params[:id])
     @comment =Comment.new
-    @comments = @character.comments
+    @comments = @character.comments.page(params[:page]).per(5)
     #リンクの引数で,query parameterを作って,それをparameterとして使い、条件分岐で詳細ページで表示するものを変えた
     if params[:rank] == "desc"
       #キャラクターに対するコメントをidが高い順に並べ、配列としてidを格納した

@@ -37,6 +37,10 @@
       <div class="comment_form">
         <%= render "public/comments/comment", comment: @comment, character: @character %>
       </div>
+      <div class="row justify-content-center">
+        <%= paginate @comments %>
+      </div>
+
     </div>
   </div>
 </div>
