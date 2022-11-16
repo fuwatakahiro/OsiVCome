@@ -23,7 +23,7 @@
         <tbody>
           <% @comments.each do |comment| %>
           <tr>
-            <th><%= comment.character.name %></th>
+            <th><%= link_to comment.character.name, character_path(comment.character.id) %></th>
             <th><%= comment.content %></th>
             <% if comment.customer.id == current_customer.id %>
               <th><%= link_to "削除", character_comment_path(comment.character.id, comment.id), method: :delete %></th>
