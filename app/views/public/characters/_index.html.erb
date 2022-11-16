@@ -1,5 +1,5 @@
  <div class="row d-flex flex-wrap my-3">
-        <% @characters.each do |character| %>
+        <% characters.each do |character| %>
         <div class=" col-3 flex-wrap">
           <%= link_to character_path(character),class: "top-link" do %>
           <%= image_tag character.get_character_image(150, 150) %>
@@ -11,4 +11,7 @@
       </div>
     </div>
   </div>
+</div>
+<div class="row justify-content-center">
+      <%= paginate characters %>
 </div>
