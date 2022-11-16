@@ -1,5 +1,6 @@
 class Public::RelationshipsController < ApplicationController
   def create
+
     @customer = Customer.find(params[:customer_id])
     current_customer.follower(@customer)
   end
