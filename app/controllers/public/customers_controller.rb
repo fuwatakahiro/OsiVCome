@@ -1,5 +1,6 @@
 class Public::CustomersController < ApplicationController
-  before_action :check_guest, only: :update
+  before_action :check_guest, only: [:edit,:update]
+  before_action :ensure_correct_customer, only: [:edit, :update]
   def index
     @customers = Customer.page(params[:page])
     if params[:rank] == 'desc'
@@ -34,6 +35,13 @@ class Public::CustomersController < ApplicationController
     if current_customer.email == "guest@gmail.com"
      flash[:notice]="ゲストログイン編集できません"
      redirect_to customers_path
+    end
+  end
+  def ensure_correct_customer
+    @customer = Customer.find(params[:id])
+    unless @customer == current_customer
+      flash[:notice] = "他のユーザーは編集できません"
+      redirect_to customers_path
     end
   end
 end
