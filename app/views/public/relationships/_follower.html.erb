@@ -6,7 +6,7 @@
         <%= image_tag customer.get_profile_image(200, 200) %>
         <p class="text-left text-dark">名前:  <%= customer.name %></p>
         <p class="text-left text-dark">コメント数:  <%= customer.comments.count %>件</p>
-        <%= link_to "詳細", customer_path(customer.id) %> |
+        <%= link_to "詳細",  admin_customer_path(customer.id) %> |
       </div>
     <% end %>
   </div>
