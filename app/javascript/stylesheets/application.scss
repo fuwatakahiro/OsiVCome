@@ -3,8 +3,16 @@
 
 
 header {
-  background-color:#99FFFF;
+  background-color:#3399FF;
 }
+
+main{
+  min-height: calc(100vh - 56px - 136px);
+  background-color: #EEEEEE;
+  // padding-bottom: 100px;
+}
+
 footer {
-  background-color:#99FFFF;
+  background-color:#3399FF;
+  margin:0;
 }
