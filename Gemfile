@@ -59,5 +59,5 @@ gem 'net-smtp'
 gem 'rails-i18n'
 gem 'jquery-rails'
 gem 'kaminari','~> 1.2.1'
-
+gem "dotenv-rails"
 gem 'counter_culture'
