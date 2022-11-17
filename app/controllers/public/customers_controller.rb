@@ -5,10 +5,13 @@ class Public::CustomersController < ApplicationController
     @customers = Customer.page(params[:page])
     if params[:rank] == 'desc'
       # 投稿のコメント数ランキング
-      customer_all = Customer.all.order('id desc').ids
-      customer_comment_ranks = Comment.group(:customer_id).order('count(customer_id) desc').pluck(:customer_id)
-      customer_rank =customer_cmment_ranks = customer_comment_ranks.push(*(customer_all-customer_comment_ranks))
-      @customers = Customer.find(customer_rank)
+      # customer_all = Customer.all.order('id desc').ids
+      # customer_comment_ranks = Comment.group(:customer_id).order('count(customer_id) desc').pluck(:customer_id)
+      # customer_rank = customer_comment_ranks.push(*(customer_all-customer_comment_ranks))
+      # @customers = Customer.find(customer_rank).page(params[:page])
+      #TODO: Customer.find_each {|i| Customer.reset_counters(i.id, :comments)}
+      # @customers = Customer.left_joins(:comments).group(:customer_id).order('count(customer_id) desc').page(params[:page])
+      @customers =Customer.order('comments_count DESC').page(params[:page])
     end
   end
   def show
