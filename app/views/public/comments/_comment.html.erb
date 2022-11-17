@@ -1,9 +1,9 @@
 <%= form_with model: comment, url: character_comments_path(character.id), local: false, method: :post do |f| %>
   <% if character.name == "その他" %>
-    <%= f.text_field :character_name %>
+    <%= f.text_field :character_name, placeholder: "キャラクター名" %>
   <% else %>
     <%= f.hidden_field :character_name, :value => character.name %>
   <% end %>
-  <%= f.text_area :content, class: "form-control" %>
+  <%= f.text_area :content, placeholder: "あなたの推し活を記述して下さい", class: "form-control" %>
   <p class="row mt-3"><%= f.submit "コメント作成", class: "col-4 mx-auto btn btn-success" %></p>
 <% end %>
