@@ -1,10 +1,10 @@
- <div class="row d-flex flex-wrap my-3">
+ <div class="row d-flex flex-wrap my-3 justify-content-center">
         <% characters.each do |character| %>
-        <div class=" col-3 flex-wrap">
+        <div class=" col-md-4 col-sm-6 col-lg-3  text-center">
           <%= link_to character_path(character),class: "top-link" do %>
           <%= image_tag character.get_character_image(150, 150) %>
-          <p class="text-left"><span><%= character.name %></span></p>
-          <p class="text-left"><%= character.greeting %></p>
+          <p class="text-center"><span><%= character.name %></span></p>
+          <p class="text-center"><%= character.greeting %></p>
         <% end %>
         </div>
         <% end %>
