@@ -35,9 +35,6 @@ class Public::ContactsController < ApplicationController
     end
   end
 
-  # 送信完了画面を使用する場合お使いください。
-
-
   private
 
   def contact_params
