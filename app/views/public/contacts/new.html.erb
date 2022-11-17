@@ -1,15 +1,21 @@
-<%= form_with model: @contact, url: confirm_path, method: :post do |f| %>
-  <div class="form-group">
-    <%= f.label :name, 'お名前*' %>
-    <%= f.text_field :name, autofocus: true, class: 'form-control' %>
+<div class="container">
+  <h3>お問い合せフォーム</h3>
+  <div class="row d-flex justify-content-center">
+    <%= form_with model: @contact, url: confirm_path, method: :post do |f| %>
+    <%= render "layouts/errors", obj: @contact %>
+  <div class="form-group row">
+    <%= f.label :name, 'お名前*', class: "col-lg-5" %>
+    <%= f.text_field :name, placeholder: "ユーザー名", autofocus: true, class: 'form-control', class: "col-lg-7 form-control" %>
   </div>
 
-  <div class="form-group">
-    <%= f.label :message, 'メッセージ*' %>
-    <%= f.text_area :message, size: '10x10', class: 'form-control' %>
+  <div class="form-group row">
+    <%= f.label :message, 'メッセージ*', class: "col-lg-5" %>
+    <%= f.text_area :message, size: '50x10', placeholder: "キャラクターの追加などのご要望を記述して下さい", class: 'form-control', class: "col-lg-7 form-control" %>
   </div>
 
-  <div>
-    <%= f.submit '入力内容確認' %>
+  <div class="text-center">
+    <%= f.submit '入力内容確認', class: "btn btn-success" %>
   </div>
 <% end %>
+  </div>
+</div>

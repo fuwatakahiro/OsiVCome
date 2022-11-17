@@ -1,6 +1,6 @@
 <%= form_with model: comment, url: character_comments_path(character.id), local: false, method: :post do |f| %>
   <% if character.name == "その他" %>
-    <%= f.text_field :character_name, placeholder: "キャラクター名" %>
+    <%= f.text_field :character_name, placeholder: "キャラクター名", class: "mb-2" %>
   <% else %>
     <%= f.hidden_field :character_name, :value => character.name %>
   <% end %>
