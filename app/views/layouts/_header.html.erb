@@ -45,8 +45,13 @@
           <% end %>
         </li>
         <li class="nav-item active">
-          <%= link_to "キャラクター新規登録", new_admin_character_path, class: "nav-link" %>
+          <%= link_to  admin_contacts_path, class: "nav-link" do %>
+            <i class="fa-regular fa-bell"></i>通知
+          <% end %>
         </li>
+        <% if @unchecked_notifications.any? %>
+          <i class="fa-sharp fa-solid fa-circle"></i>
+        <% end %>
         <li class="nav-item active">
           <%= link_to  admin_customers_path, class: "nav-link" do %>
             <i class="fa-solid fa-user"></i>ユーザー一覧
