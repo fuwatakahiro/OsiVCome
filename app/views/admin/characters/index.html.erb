@@ -18,7 +18,7 @@
             <td><%= link_to character.name,  admin_character_path(character) %></td>
             <td><%= character.greeting %></td>
             <td><%= character.genre %></td>
-            <th></th>
+            <th><%= character.comments.count %>件</th>
           </tr>
         <% end %>
       </tbody>

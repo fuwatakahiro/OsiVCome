@@ -6,7 +6,7 @@ class Character < ApplicationRecord
   validates :character_image,presence: true
   has_one_attached :character_image
   has_many :comments, dependent: :destroy
-  
+
   def get_character_image(width, height)
     unless character_image.attached?
       file_path = Rails.root.join('app/assets/images/no_image.jpeg')
