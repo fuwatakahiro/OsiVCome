@@ -11,7 +11,7 @@
     <% customers.each do |customer| %>
       <tr>
         <td><%= image_tag customer.get_profile_image(75,75) %></td>
-        <td><%= link_to customer.name.truncate(13),customer_path(customer, {follow: "followins"}) %></td>
+        <td><%= link_to customer.name.truncate(13),customer_path(customer, {follow: "followins"}), class: "text-info" %></td>
         <td><%= customer.comments.count %>件</td>
         <td><%#=  %></td>
         <td id="relationship_buttons_<%= customer.id %>">

@@ -23,15 +23,18 @@
         <tbody>
           <% @comments.each do |comment| %>
           <tr>
-            <th><%= link_to comment.character.name, character_path(comment.character.id) %></th>
+            <th><%= link_to comment.character.name, character_path(comment.character.id), class: "text-info" %></th>
             <th><%= comment.content %></th>
             <% if comment.customer.id == current_customer.id %>
-              <th><%= link_to "削除", character_comment_path(comment.character.id, comment.id), method: :delete %></th>
+              <th><%= link_to "削除", character_comment_path(comment.character.id, comment.id), method: :delete, class: "btn btn-danger" %></th>
             <% end %>
           </tr>
           <% end %>
         </tbody>
       </table>
+      <div class="d-flex justify-content-center">
+        <%= paginate @comments %>
+      </div>
     </div>
   </div>
 </div>

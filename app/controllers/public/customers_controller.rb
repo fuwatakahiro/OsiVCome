@@ -16,7 +16,7 @@ class Public::CustomersController < ApplicationController
   end
   def show
     @customer = Customer.find(params[:id])
-    @comments = @customer.comments
+    @comments = @customer.comments.page(params[:page])
   end
   def edit
     @customer = Customer.find(params[:id])

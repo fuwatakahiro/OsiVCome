@@ -23,3 +23,8 @@
     <th class="followed-count"><%= render "public/customers/follower", customer: customer %></th>
   </tr>
 </table>
+<% if customer.id == current_customer %>
+  <div class="text-center">
+    <%= link_to "編集",  edit_customer_path(customer),class: "btn-primary btn " %>
+  </div>
+<% end %>

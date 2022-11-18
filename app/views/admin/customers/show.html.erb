@@ -20,7 +20,7 @@
         <tbody>
           <% @comments.each do |comment| %>
           <tr>
-            <th><%= link_to comment.character.name, admin_character_path(comment.character.id) %></th>
+            <th><%= link_to comment.character.name, admin_character_path(comment.character.id), class: "text-info" %></th>
             <th><%= comment.content %></th>
             <th class="text-dark"> <%= comment.favorites.count %>いいね</th>
           </tr>

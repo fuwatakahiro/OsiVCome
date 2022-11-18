@@ -1,12 +1,4 @@
 ja:
-   activerecord:
-    attributes:
-     character:
-       name: "名前"
-       greeting: "挨拶"
-       genre: "ジャンル"
-       reference_destination: "引用先"
-       character_image: "画像"
   activerecord:
     errors:
       messages:
@@ -212,6 +204,10 @@ ja:
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
-  activerecord:
-    attributes:
-    characterr:
+  views:
+    pagination:
+      first: "&laquo; 最初"
+      last: "最後 &raquo;"
+      previous: "&lsaquo; 前"
+      next: "次 &rsaquo;"
+      truncate: "..."
