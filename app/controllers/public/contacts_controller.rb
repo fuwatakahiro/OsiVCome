@@ -34,12 +34,14 @@ class Public::ContactsController < ApplicationController
       render :new
     end
   end
+  # 送信完了画面を使用する場合お使いください。
   def done
-    @contact = Contact.find(params[:id])
+    @contact = Contact.find(params[:contact])
   end
+
   private
 
   def contact_params
-    params.require(:contact).permit(:subject,:name,:message)
+    params.require(:contact).permit(:name,:message)
   end
 end
