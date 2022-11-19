@@ -3,9 +3,7 @@ class Public::ContactsController < ApplicationController
     @contact = Contact.new
   end
 
-  # 確認画面を作成する場合はこのような記述になるかと思います。
-  # newアクションから入力内容を受け取り、
-  # 送信ボタンを押されたらcreateアクションを実行します。
+  # 確認画面
   def confirm
     @contact = Contact.new(contact_params)
     if @contact.invalid?
@@ -14,27 +12,28 @@ class Public::ContactsController < ApplicationController
   end
 
   # 入力内容に誤りがあった場合、
-  # 入力内容を保持したまま前のページに戻るのが当たり前になっているかと思いますが、
-  # backアクションを定義することで可能となります。
+  # 入力内容を保持したまま前のページに戻る
   def back
     @contact = Contact.new(contact_params)
     render :new
   end
 
   # 実際に送信するアクションになります。
-  # ここで初めて入力内容を保存します。
-  # セキュリティーのためにも一定時間で入力内容の削除を行ってもいいかもしれません。
   def create
     @contact = Contact.new(contact_params)
     if @contact.save
       ContactMailer.send_mail(@contact).deliver_now
+      notification = Notification.new
+      notification.contact_id =@contact.id
+      notification.checked = false
+      notification.save
       flash[:notice] = "お問合せを送りました"
       redirect_to done_path(contact: @contact)
     else
       render :new
     end
   end
-  # 送信完了画面を使用する場合お使いください。
+  # 送信完了画面
   def done
     @contact = Contact.find(params[:contact])
   end
@@ -43,5 +42,8 @@ class Public::ContactsController < ApplicationController
 
   def contact_params
     params.require(:contact).permit(:name,:message)
+  end
+  def notification_params
+    params.require(:notification).permit(:contact_id, :checked)
   end
 end
