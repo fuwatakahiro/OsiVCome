@@ -2,6 +2,8 @@ class Admin::CharactersController < ApplicationController
   before_action :authenticate_admin!
   def index
     @characters = Character.page(params[:page]).per(10)
+    @genre = Genre.new
+    @genres = Genre.all
   end
 
   def new
@@ -33,6 +35,6 @@ class Admin::CharactersController < ApplicationController
   end
   private
   def character_params
-    params.require(:character).permit(:character_image, :greeting, :name, :genre, :reference_destination)
+    params.require(:character).permit(:character_image, :greeting, :name, :genre_id, :reference_destination)
   end
 end
