@@ -30,7 +30,8 @@
     </div>
     <div class='col-md-7 offset-md-1'>
       <h3 class="mt-3">コメント一覧</h3>
-      <%= link_to 'ranking', character_path(@character, {rank: "desc"}) %>
+      <%= link_to 'いいねランキング', character_path(@character, {rank: "desc"}) %>
+      <%= link_to "", character_path(@character) %>
       <div class="row" id="comment_list">
         <%= render "public/comments/comment_list", comments: @comments %>
       </div>
