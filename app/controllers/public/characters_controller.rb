@@ -1,7 +1,11 @@
 class Public::CharactersController < ApplicationController
   def index
-    @characters = Character.page(params[:page]).per(8)
     @genres = Genre.all
+    if params[:genre_id]
+      @characters = Character.where(genre_id: params[:genre_id]).page(params[:page])
+    else
+      @characters = Character.page(params[:page]).per(8)
+    end
   end
   def show
     @character = Character.find(params[:id])

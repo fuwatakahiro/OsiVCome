@@ -1,14 +1,12 @@
  <div class="row d-flex flex-wrap my-3 justify-content-center">
-        <% characters.each do |character| %>
-        <div class=" col-md-4 col-sm-6 col-lg-3  text-center link-secondary">
-          <%= link_to character_path(character),class: "top-link" do %>
+    <% characters.each do |character| %>
+      <div class=" col-md-4 col-sm-6 col-lg-3  text-center link-secondary">
+        <%= link_to character_path(character),class: "top-link" do %>
           <%= image_tag character.get_character_image(150, 150) %>
           <p class="text-center text-info"><span><%= character.name %></span></p>
           <p class="text-center text-dark"><%= character.greeting %></p>
         <% end %>
-        </div>
-        <% end %>
       </div>
-    </div>
+    <% end %>
   </div>
-</div>
+

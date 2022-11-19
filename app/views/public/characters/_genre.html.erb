@@ -1,0 +1,10 @@
+<div class="row">
+  <div class="col-7 border border-secondary text-center ">ジャンル検索</div>
+</div>
+<% genres.each do |genre| %>
+  <div class="row">
+    <div class="col-7 border border-secondary pt-2 text-center">
+      <%= link_to genre.name, characters_path(genre_id: genre.id) %>
+    </div>
+  </div>
+<% end %>

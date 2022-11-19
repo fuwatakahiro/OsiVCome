@@ -3,7 +3,6 @@ class Admin::GenresController < ApplicationController
     @genres = Genre.all
     @genre = Genre.new(genre_params)
     @genre.save
-    flash[:notice] = "ジャンルを追加しました"
   end
   def destroy
     @genres = Genre.all

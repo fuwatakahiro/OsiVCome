@@ -2,7 +2,7 @@
   <div class='row'>
     <div class='col-md-4 mt-3'>
       <h3><%=@customer.name %>の詳細</h3>
-      <%= render "info", customer: @customer %>
+      <%= render "public/customers/info", customer: @customer %>
       <% if customer_signed_in? %>
       <div id="relationship_buttons_<%= @customer.id %>">
         <%= render "public/relationships/btn", customer: @customer %>

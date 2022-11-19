@@ -3,7 +3,7 @@
 	<h3>"<%= @content %>"での検索結果</h3>
   <%= render 'public/characters/index', characters: @records %>
 <% elsif @model == 'customer' %>
-	<h3>Books search for "<%= @content %>"</h3>
+	<h3>"<%= @content %>"での検索結果</h3>
   <%= render 'public/customers/index', customers: @records %>
 <% end %>
 </div>

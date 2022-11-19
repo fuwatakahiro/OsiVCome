@@ -4,7 +4,7 @@ class Public::SearchesController < ApplicationController
     @model = params[:model]
     if @model == "character"
       @records = Character.search_for(@content)
-    else
+    elsif @model == "customer"
       @records = Customer.search_for(@content)
     end
   end
