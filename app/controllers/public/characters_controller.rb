@@ -1,6 +1,7 @@
 class Public::CharactersController < ApplicationController
   def index
     @characters = Character.page(params[:page]).per(8)
+    @genres = Genre.all
   end
   def show
     @character = Character.find(params[:id])

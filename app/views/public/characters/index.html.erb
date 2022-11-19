@@ -1,18 +1,16 @@
-<div class="container">
-  <div class="row py-4">
-    <div class="col-9">
-      <div class="row">
-        <h3 class="col-md-5 ">キャラ一覧</h3>
-      </div>
+<div class = "container">
+  <div class ="row">
+    <h3 class = "col-md-5 ">キャラ一覧</h3>
+  </div>
+  <div class = "row py-4">
+    <div class = "col-9">
       <%= render "index", characters: @characters %>
-      <div class="row justify-content-center">
+      <div class = "row justify-content-center">
         <%= paginate @characters %>
       </div>
     </div>
-  </div>
-  <div class="col-3">
-    <div class="top-genres pt-3">
-
+    <div class="col-3">
+      <%= render "public/genres/index", genres: @genres %>
     </div>
   </div>
 </div>
