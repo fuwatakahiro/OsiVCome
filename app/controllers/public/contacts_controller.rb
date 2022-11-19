@@ -29,12 +29,14 @@ class Public::ContactsController < ApplicationController
     if @contact.save
       ContactMailer.send_mail(@contact).deliver_now
       flash[:notice] = "お問合せを送りました"
-      redirect_to characters_path
+      redirect_to done_path(contact: @contact)
     else
       render :new
     end
   end
-
+  def done
+    @contact = Contact.find(params[:id])
+  end
   private
 
   def contact_params
