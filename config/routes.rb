@@ -19,7 +19,7 @@ Rails.application.routes.draw do
      resources :contacts, only: [:new, :create]
      post 'contacts/confirm', to: 'contacts#confirm', as: 'confirm'
      post 'contacts/back', to: 'contacts#back', as: 'back'
-     get 'done/:id', to: 'contacts#done', as: 'done'
+     get 'done', to: 'contacts#done', as: 'done'
      resources :characters, only: [:index, :show] do
        resources :comments, only:[:create, :destroy] do
          resource :favorites, only:[:create, :destroy]
@@ -35,7 +35,7 @@ Rails.application.routes.draw do
    namespace :admin do
      resources :characters, except: :destroy
      resources :customers, only: [:index, :show, :edit, :update]
-     get "/contacts" => "contacts#index"
+     resources :contacts, only: [:index, :create]
    end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

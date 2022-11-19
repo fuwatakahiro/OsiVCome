@@ -29,7 +29,7 @@ class Public::ContactsController < ApplicationController
     if @contact.save
       ContactMailer.send_mail(@contact).deliver_now
       flash[:notice] = "お問合せを送りました"
-      redirect_to done_path(@contact.id)
+      redirect_to done_path(contact: @contact)
     else
       render :new
     end
@@ -37,11 +37,7 @@ class Public::ContactsController < ApplicationController
 
   # 送信完了画面を使用する場合お使いください。
   def done
-    @contact = Contact.find(params[:id])
-    notification = Notification.new
-    notification.contact_id = @contact.id
-    notification.checked = false
-    notification.save
+    @contact = Contact.find(params[:contact])
   end
 
   private
