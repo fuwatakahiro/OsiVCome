@@ -1,0 +1,14 @@
+<div class="mt-3">
+  <div class="row">
+    <div class="col-8 border-bottom border-dark">ジャンル名</div>
+    <div class="col-4 border-bottom border-dark"></div>
+  </div>
+  <% genres.each do |genre| %>
+    <div class="row">
+      <div class="col-8">
+        <%= genre.name %>
+      </div>
+      <div class="col-4"><%= link_to "削除", admin_genre_path(genre), method: :delete, remote: true %></div>
+    </div>
+  <% end %>
+</div>

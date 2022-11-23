@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row py-4">
+    <div class="col-3">
+      <div class="top-genres mt-3">
+
+      </div>
+    </div>
+    <div class="col-9">
+      <div class="row">
+        <h3 class="col-md-5 ">キャラ一覧</h3>
+      </div>
+      <%= render "index", characters: @characters %>
+      <div class="row justify-content-center">
+        <%= paginate @characters %>
+      </div>
+    </div>
+  </div>
+</div>

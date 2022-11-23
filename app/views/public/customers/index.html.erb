@@ -1,0 +1,16 @@
+<div class='container px-5 px-sm-0'>
+  <div class='row'>
+    <div class='col-md-4 mt-3'>
+      <h3>自分</h3>
+      <%= render "info", customer: current_customer %>
+    </div>
+    <div class='col-md-7 offset-md-1'>
+      <h3 class="mt-3">ユーザー一覧</h3>
+      <%= link_to "コメントランキング", customers_path({rank: "desc"}) %>
+      <%= render "index", customers: @customers %>
+      <div class="row justify-content-center">
+        <%= paginate @customers %>
+      </div>
+    </div>
+  </div>
+</div>

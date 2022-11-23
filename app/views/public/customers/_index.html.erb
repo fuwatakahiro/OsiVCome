@@ -1,0 +1,23 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>画像</th>
+      <th>名前</th>
+      <th>コメント数</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% customers.each do |customer| %>
+      <tr>
+        <td><%= image_tag customer.get_profile_image(75,75) %></td>
+        <td><%= link_to customer.name.truncate(13),customer_path(customer, {follow: "followins"}) %></td>
+        <td><%= customer.comments.count %>件</td>
+        <td><%#=  %></td>
+        <td id="relationship_buttons_<%= customer.id %>">
+          <%= render "public/relationships/btn", customer: customer %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

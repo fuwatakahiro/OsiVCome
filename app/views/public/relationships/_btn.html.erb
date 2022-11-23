@@ -1,0 +1,15 @@
+<% if current_customer != customer %>
+<% if params[:follow]%>
+  <% if current_customer.following?(customer) %>
+    <%= link_to "フォローを外す", customer_relationships_path(customer.id,{follow: "follow"}), remote: true,  method: :delete %>
+  <% else %>
+    <%= link_to "フォローする", customer_relationships_path(customer.id, {follow: "follow"}), remote: true,method: :post %>
+  <% end %>
+  <% else %>
+  <% if current_customer.following?(customer) %>
+    <%= link_to "フォローを外す", customer_relationships_path(customer.id), remote: true,  method: :delete %>
+  <% else %>
+    <%= link_to "フォローする", customer_relationships_path(customer.id), remote: true,method: :post %>
+  <% end %>
+  <% end %>
+<% end %>

@@ -1,0 +1,21 @@
+<footer>
+  <% if customer_signed_in? %>
+    <div class='container py-5'>
+      <div class='row mx-auto d-flex justify-content-center'>
+       <p>画像を取り扱う場合,自己紹介欄にサービス名まとURLを示してください。</p>
+      </div>
+    </div>
+  <% elsif admin_signed_in? %>
+    <div class='container py-5'>
+      <div class='row mx-auto d-flex justify-content-center'>
+       <p>画像を取り扱う場合,引用先にサービス名まとURLを示してください</p>
+      </div>
+    </div>
+  <% else %>
+    <div class='container py-5'>
+      <div class='row mx-auto d-flex justify-content-center'>
+       <p>© 2022,OsiVCome!!</p>
+      </div>
+    </div>
+  <% end %>
+</footer>

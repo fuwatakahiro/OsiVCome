@@ -1,0 +1,22 @@
+<div class="row table" style="width:100%">
+  <div class="col-3">投稿者</div>
+  <div class="col-9">推し活動</div>
+</div>
+<div class="row"style="width:100%">
+  <% comments.each do |comment| %>
+    <div class="col-lg-3 mb-3 col-md-3"><%= comment.customer.name.truncate(13) %></div>
+    <div class="col-lg-5 mb-3 col-md-5"><%= comment.content %></div>
+    <div class="col-lg-2 mb-3 col-md-4">
+      <div class="favorite_buttons_<%= comment.id %>">
+        <%= render "public/favorites/favorite", customer: current_customer, comment: comment %>
+      </div>
+    </div>
+    <div class="col-2">
+      <div class="destroy_btn_<%= comment.id %>">
+        <% if comment.customer_id ==  current_customer.id %>
+          <%= link_to "削除", character_comment_path(comment.character.id, comment.id),remote: true, method: :delete, data: { confirm: 'コメントを消しますか？' }, class: "btn btn-danger" %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>

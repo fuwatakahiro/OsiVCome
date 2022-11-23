@@ -1,0 +1,46 @@
+<div class='container px-5 px-sm-0'>
+  <div class='row'>
+    <div class='col-lg-4 mt-3'>
+      <h3>キャラクター詳細</h3>
+      <table class='table'>
+        <tr><%= image_tag  @character.get_character_image(120,120) %></tr>
+        <tr>
+          <th>名前</th>
+          <th><%= @character.name %></th>
+        </tr>
+        <tr>
+          <th>挨拶</th>
+          <th><%= @character.greeting %></th>
+        </tr>
+        <tr>
+          <th>ジャンル</th>
+          <th><%= @character.genre %></th>
+        </tr>
+        <tr>
+          <th>画像引用先</th>
+          <th><%= @character.reference_destination %></th>
+        </tr>
+        <tr>
+          <th>コメント数</th>
+          <th class="comment-count">
+            <%= render "public/comments/count", comments: @comments %>
+          </th>
+        </tr>
+      </table>
+    </div>
+    <div class='col-lg-7 offset-md-1'>
+      <h3 class="mt-3">コメント一覧</h3>
+      <%= link_to 'ranking', character_path(@character, {rank: "desc"}) %>
+      <div class="row" id="comment_list">
+        <%= render "public/comments/comment_list", comments: @comments %>
+      </div>
+      <div class="comment_form">
+        <%= render "public/comments/comment", comment: @comment, character: @character %>
+      </div>
+      <div class="row justify-content-center">
+        <%= paginate @comments %>
+      </div>
+
+    </div>
+  </div>
+</div>

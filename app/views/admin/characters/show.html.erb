@@ -1,0 +1,32 @@
+<div class="container">
+  <h3 class="py-3">キャラクター詳細ページ</h3>
+  <div class="row">
+    <div class="col-lg-6">
+       <%= image_tag  @character.get_character_image(450,400) %>
+    </div>
+    <div class="col-lg-5 offset-md-1 mt-5">
+      <div class="row mb-3">
+        <p class="col-lg-3 lead">名前</p>
+        <p class="col-lg-8 offset-md-1 lead"><%= @character.name %></p>
+      </div>
+      <div class="row mb-3">
+        <p class="col-lg-3 lead">挨拶</p>
+        <p class="col-lg-8 offset-md-1 lead"><%= @character.greeting %></p>
+      </div>
+      <div class="row mb-3">
+        <p class="col-lg-3 lead">ジャンル</p>
+        <p class="col-lg-8 offset-md-1 lead"><%= @character.genre.name %></p>
+      </div>
+      <div class="row mb-3">
+        <p class="col-lg-3 lead">引用先</p>
+        <p class="col-lg-8 offset-md-1 lead"><%= @character.reference_destination %></p>
+      </div>
+      <div class="text-center row mb-3">
+        <%= link_to "編集", edit_admin_character_path(@character), class: "col-lg-4 mx-auto btn btn-success" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
