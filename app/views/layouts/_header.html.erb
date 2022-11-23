@@ -1,13 +1,12 @@
 <nav class="navbar navbar-expand-lg navbar-light">
   <div class="container-fluid ">
+    <%= image_tag 'osi_image-2.png', size: '110x90', class: "navbar-brand ml-5" %>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+</button>
     <div id="navbarNavDropdown", class="ml-auto">
     <% if customer_signed_in? %>
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item active">
-          <%= link_to  destroy_customer_session_path, method: :delete, class: "nav-link" do %>
-            <i class="fas fa-sign-out-alt"></i>ログアウト
-          <% end %>
-        </li>
         <li class="nav-item active">
           <%= link_to  customers_path, class: "nav-link" do %>
             <i class="fa-solid fa-user"></i>ユーザー一覧
@@ -24,7 +23,9 @@
           <% end %>
         </li>
         <li class="nav-item active">
-          <%= link_to "ユーザー編集",edit_customer_path(current_customer), class: "nav-link" %>
+          <%= link_to  destroy_customer_session_path, method: :delete, class: "nav-link" do %>
+            <i class="fas fa-sign-out-alt"></i>ログアウト
+          <% end %>
         </li>
       </ul>
       <ul class="navbar-nav">
@@ -35,26 +36,27 @@
     <% elsif admin_signed_in? %>
       <ul class="navbar-nav ml-auto">
         <li class="nav-item active">
-          <%= link_to  destroy_admin_session_path, method: :delete, class: "nav-link" do %>
-            <i class="fas fa-sign-out-alt"></i>ログアウト
-          <% end %>
-        </li>
-        <li class="nav-item active">
           <%= link_to  admin_characters_path, class: "nav-link" do %>
             <i class="fa-solid fa-otter"></i>キャラクター一覧
           <% end %>
         </li>
-        <% if @unchecked_notifications.any? %>
-          <i class="fa-sharp fa-solid fa-circle"></i>
+        <li class="nav-item active" style="position:relative">
+                  <% if @unchecked_notifications.any? %>
+          <i class="fa-sharp fa-solid fa-circle device-alert" ></i>
         <% end %>
-        <li class="nav-item active">
+
           <%= link_to  admin_contacts_path, class: "nav-link" do %>
-            <i class="fa-regular fa-bell"></i>通知
+            <i class="fa-regular fa-bell" ></i>通知
           <% end %>
         </li>
         <li class="nav-item active">
           <%= link_to  admin_customers_path, class: "nav-link" do %>
             <i class="fa-solid fa-user"></i>ユーザー一覧
+          <% end %>
+        </li>
+        <li class="nav-item active">
+          <%= link_to  destroy_admin_session_path, method: :delete, class: "nav-link" do %>
+            <i class="fas fa-sign-out-alt"></i>ログアウト
           <% end %>
         </li>
       </ul>
