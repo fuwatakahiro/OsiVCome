@@ -9,7 +9,9 @@ class Admin::GenresController < ApplicationController
     @genre = Genre.find(params[:id])
     @genre.destroy
   end
+  
   private
+  
   def genre_params
     params.require(:genre).permit(:name)
   end

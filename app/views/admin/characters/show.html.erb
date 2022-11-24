@@ -2,28 +2,28 @@
   <h3 class="py-3">キャラクター詳細ページ</h3>
   <div class="row">
     <div class="col-lg-6">
-       <%= image_tag  @character.get_character_image(450,400) %>
+       <%= image_tag  @character.get_character_image(450,400), class: "w-100" %>
     </div>
     <div class="col-lg-5 offset-md-1 mt-2">
       <div class="row mb-3">
-        <p class="col-lg-4 lead">名前</p>
-        <p class="col-lg-7 offset-md-1 lead"><%= @character.name %></p>
+        <p class="col-lg-4 col-sm-6 lead">名前</p>
+        <p class="col-lg-7 col-sm-6 offset-md-1 lead"><%= @character.name %></p>
       </div>
       <div class="row mb-3">
-        <p class="col-lg-4 lead">挨拶</p>
-        <p class="col-lg-7 offset-md-1 lead"><%= @character.greeting %></p>
+        <p class="col-lg-4 col-sm-6 lead">挨拶</p>
+        <p class="col-lg-7 col-sm-6 offset-md-1 lead"><%= @character.greeting %></p>
       </div>
       <div class="row mb-3">
-        <p class="col-lg-3 lead">ジャンル</p>
-        <p class="col-lg-8 offset-md-1 lead"><%= @character.genre.name %></p>
+        <p class="col-lg-4 col-md-6 lead">グループ</p>
+        <p class="col-lg-7 col-md-6 offset-md-1 lead"><%= @character.genre.name %></p>
       </div>
       <div class="row mb-3">
-        <p class="col-lg-4 lead">引用先</p>
-        <p class="col-lg-7 offset-md-1 lead"><%= @character.reference_destination %></p>
+        <p class="col-lg-4 col-sm-6 lead">引用先</p>
+        <p class="col-lg-7 col-sm-6 offset-md-1 lead"><%= @character.reference_destination %></p>
       </div>
       <div class="row mb-3">
-        <p class="col-lg-4 lead">コメント数</p>
-        <p class="col-lg-7 offset-md-1 lead"><%= @character.comments.count %>件</p>
+        <p class="col-lg-4 col-sm-6 lead">コメント数</p>
+        <p class="col-lg-7 col-sm-6 offset-md-1 lead"><%= @character.comments.count %>件</p>
       </div>
       <div class="text-center row mb-3">
         <%= link_to "編集", edit_admin_character_path(@character), class: "col-lg-4 mx-auto btn btn-success" %>

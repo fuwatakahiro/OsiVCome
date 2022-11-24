@@ -1,34 +1,36 @@
 <div class="container">
-  <div class="row">
+  <div class="row pt-3">
     <h3>キャラクター一覧</h3>
+    <%= link_to new_admin_character_path, class: "ml-5" do %>
+        <div class="new-btn">
+          <i class="fas fa-plus"></i>
+        </div>
+      <% end %>
   </div>
   <div class="row">
-    <div class="col-8">
-      <table class="table table-hover">
-      <thead>
-        <tr>
-          <th>id</th>
-          <th>名前</th>
-          <th>挨拶</th>
-          <th>コメント数</th>
-        </tr>
-      </thead>
-      <tbody>
+    <div class="col-lg-8">
+      <div class="my-4">
+        <div class="row">
+          <div class="col-2">id</div>
+          <div class="col-4">名前</div>
+          <div class="col-4">挨拶</div>
+          <div class="col-2">コメ数</div>
+        </div>
         <% @characters.each do |character| %>
-          <tr>
-            <td><%= character.id %></td>
-            <td><%= link_to character.name,  admin_character_path(character) %></td>
-            <td><%= character.greeting %></td>
-            <th><%= character.comments.count %>件</th>
-          </tr>
+          <div class="row border-top">
+            <div class="col-2 py-2"><%= character.id %></div>
+            <div class="col-4 py-2"><%= link_to character.name.truncate(13),  admin_character_path(character) %></div>
+            <div class="col-4 py-2"><%= character.greeting %></div>
+            <div class="col-2 py-2"><%= character.comments.count %>件</div>
+          </div>
         <% end %>
-      </tbody>
-    </table>
-    <div class="row justify-content-center">
-    <%= paginate @characters %>
+      </div>
+
+      <div class="row justify-content-center">
+      <%= paginate @characters %>
+      </div>
     </div>
-    </div>
-    <div class="col-4 pt-5">
+    <div class="col-lg-3 py-5 offset-lg-1">
       <%= render "admin/genres/form", genre: @genre %>
       <div class="genre_list">
         <%= render "admin/genres/index", genres: @genres %>

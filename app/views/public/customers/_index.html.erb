@@ -1,27 +1,16 @@
-<table class="table">
-  <thead>
-    <tr>
-      <th>画像</th>
-      <th>名前</th>
-      <th>コメント数</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% customers.each do |customer| %>
-      <tr>
-        <td><%= image_tag customer.get_profile_image(75,75) %></td>
-        <td><%= link_to customer.name.truncate(13),customer_path(customer, {follow: "followins"}), class: "text-info" %></td>
-        <td><%= customer.comments.count %>件</td>
-        <td id="relationship_buttons_<%= customer.id %>">
-          <%= render "public/relationships/btn", customer: customer %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<div>
+<div class="my-4">
   <div class="row">
-    
+    <div class="col-3">画像</div>
+    <div class="col-3">名前</div>
+    <div class="col-3">コメ数</div>
+    <div class="col-3"></div>
   </div>
+  <% customers.each do |customer| %>
+    <div class="row border-top">
+      <div class="col-3 py-2 px-0"><%= image_tag customer.get_profile_image(75,75), class: "rounded" %></div>
+      <div class="col-3 my-auto px-0"><%= link_to customer.name.truncate(13),customer_path(customer, {follow: "followins"}), class: "text-info" %></div>
+      <div class="col-3 my-auto px-0"><%= customer.comments.count %>件</div>
+      <div id="relationship_buttons_<%= customer.id %>" class="col-3 my-auto px-0"><%= render "public/relationships/btn", customer: customer %></div>
+    </div>
+  <% end %>
 </div>
