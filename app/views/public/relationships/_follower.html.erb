@@ -1,7 +1,7 @@
 <div class="row d-flex flex-wrap">
   <% customers.each do |customer| %>
     <div class="col-lg-4 col-sm-6 flex-wrap text-center mb-3">
-      <%= image_tag customer.get_profile_image(200, 200), class: "text-center" %>
+      <%= image_tag customer.get_profile_image(200, 200), class: "text-center rounded-circle" %>
       <p class=" text-dark">名前:  <%= customer.name.truncate(13) %></p>
       <p class=" text-dark">コメント数:  <%= customer.comments.count %>件</p>
       <% if customer_signed_in? %>
