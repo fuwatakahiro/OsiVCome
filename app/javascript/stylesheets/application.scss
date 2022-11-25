@@ -25,14 +25,23 @@ footer {
   height: 50px;
   box-shadow: 0px 3px 4px 0 grey;
 }
+.new-aikon {
+  position: absolute;
+  top: 19px;
+  right: 0;
+  left: 12px;
+  margin: auto;
+  font-size: 20px;
+  color:black;
+}
 .fa-plus {
   position: absolute;
-  top: 4px;
+  top: 9px;
   right: 0;
-  left: 3px;
+  left: 13px;
   margin: auto;
-  color: grey;
-  font-size: 40px;
+  color: black;
+  font-size: 17px;
 }
 .page-link {
   background-color:#663333;

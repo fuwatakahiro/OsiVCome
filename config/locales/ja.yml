@@ -219,4 +219,12 @@ ja:
         genre: "ジャンル"
         reference_destination: "引用先"
         character_image: "画像"
-
+  activerecord:
+    attributes:
+      contact:
+        name: "名前"
+        message: "メッセージ"
+  activerecord:
+    attributes:
+      customer:
+        introduction: "自己紹介"

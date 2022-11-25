@@ -5,7 +5,7 @@ class Admin::CustomersController < ApplicationController
   end
   def show
     @customer = Customer.find(params[:id])
-    @comments = @customer.comments
+    @comments = @customer.comments.page(params[:page]).per(5)
   end
   def edit
     @customer = Customer.find(params[:id])
@@ -19,9 +19,9 @@ class Admin::CustomersController < ApplicationController
       render :edit
     end
   end
-  
+
   private
-  
+
   def customer_params
     params.require(:customer).permit(:name, :email, :profile_image, :is_deleted, :profile_image)
   end

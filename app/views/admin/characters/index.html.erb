@@ -3,6 +3,7 @@
     <h3>キャラクター一覧</h3>
     <%= link_to new_admin_character_path, class: "ml-5" do %>
         <div class="new-btn">
+          <i class="fa-solid fa-otter new-aikon"></i>
           <i class="fas fa-plus"></i>
         </div>
       <% end %>
@@ -19,7 +20,7 @@
         <% @characters.each do |character| %>
           <div class="row border-top">
             <div class="col-2 py-2"><%= character.id %></div>
-            <div class="col-4 py-2"><%= link_to character.name.truncate(13),  admin_character_path(character) %></div>
+            <div class="col-4 py-2"><%= link_to character.name.truncate(13),  admin_character_path(character), class: "text-info" %></div>
             <div class="col-4 py-2"><%= character.greeting %></div>
             <div class="col-2 py-2"><%= character.comments.count %>件</div>
           </div>
