@@ -2,7 +2,7 @@
   <div class='row'>
     <div class='col-md-4 mt-3'>
       <h3><%=@customer.name %>の詳細</h3>
-      <%= render "info", customer: @customer %>
+      <%= render "public/customers/info", customer: @customer %>
       <% if customer_signed_in? %>
       <div id="relationship_buttons_<%= @customer.id %>">
         <%= render "public/relationships/btn", customer: @customer %>
@@ -11,27 +11,23 @@
     </div>
     <div class='col-md-7 offset-md-1'>
       <h3 class="mt-3">コメント一覧</h3>
-      <table class="table">
-        <thead>
-          <tr>
-            <th>キャラクター名</th>
-            <th>コメント内容</th>
-            <th></th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @comments.each do |comment| %>
-          <tr>
-            <th><%= link_to comment.character.name, character_path(comment.character.id) %></th>
-            <th><%= comment.content %></th>
-            <% if comment.customer.id == current_customer.id %>
-              <th><%= link_to "削除", character_comment_path(comment.character.id, comment.id), method: :delete %></th>
-            <% end %>
-          </tr>
-          <% end %>
-        </tbody>
-      </table>
+      <div>
+        <div class="row">
+          <div class="col-5">キャラクター名</div>
+          <div class="col-5">推し活動</div>
+          <div class="col-2"></div>
+        </div>
+        <% @comments.each do |comment| %>
+          <div class="row border-top">
+            <div class="col-5 py-2 px-0"><%= link_to comment.character.name, character_path(comment.character.id), class: "text-info" %></div>
+            <div class="col-5 py-2 px-0"><%= comment.content %></div>
+            <div class="col-2 py-2 px-0"><%= link_to "削除", character_comment_path(comment.character.id, comment.id), method: :delete, data: { confirm: 'コメントを消しますか？' }, class: "btn btn-danger" %></div>
+          </div>
+        <% end %>
+      </div>
+      <div class="d-flex justify-content-center">
+        <%= paginate @comments %>
+      </div>
     </div>
   </div>
 </div>

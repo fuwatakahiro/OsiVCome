@@ -16,10 +16,10 @@ Rails.application.routes.draw do
   end
 
    scope module: :public do
+     get "/genres" => "genres#index"
      resources :contacts, only: [:new, :create]
      post 'contacts/confirm', to: 'contacts#confirm', as: 'confirm'
      post 'contacts/back', to: 'contacts#back', as: 'back'
-     get 'done', to: 'contacts#done', as: 'done'
      resources :characters, only: [:index, :show] do
        resources :comments, only:[:create, :destroy] do
          resource :favorites, only:[:create, :destroy]
@@ -33,10 +33,10 @@ Rails.application.routes.draw do
      get "/search" => "searches#search"
    end
    namespace :admin do
+    root to: "homes#top"
      resources :characters, except: :destroy
      resources :customers, only: [:index, :show, :edit, :update]
      resources :contacts, only: [:index, :create]
      resources :genres, only: [:create, :destroy]
    end
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

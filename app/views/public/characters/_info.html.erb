@@ -1,23 +1,23 @@
-<table class='table'>
-  <tr><%= image_tag  character.get_character_image(120,120) %></tr>
-  <tr>
-    <th>名前</th>
-    <th><%= character.name %></th>
-  </tr>
-  <tr>
-    <th>挨拶</th>
-    <th><%= character.greeting %></th>
-  </tr>
-  <tr>
-    <th>ジャンル</th>
-    <th><%= character.genre %></th>
-  </tr>
-  <tr>
-    <th>画像引用先</th>
-    <th><%= character.reference_destination %></th>
-  </tr>
-  <tr>
-    <th>コメント数</th>
-    <th><%= comments.count %>件</th>
-  </tr>
-</table>
+<div>
+  <div class="row  d-lg-flex justify-content-lg-center"><%= image_tag  character.get_character_image(120,120), class: "rounded" %></div>
+  <div class="row border-top">
+    <div class="col-5 p py-2">名前</div>
+    <div class="col-7 p py-2"><%= character.name %></div>
+  </div>
+  <div class="row border-top">
+    <div class="col-5 p py-2">挨拶</div>
+    <div class="col-7 p py-2"><%= character.greeting %></div>
+  </div>
+  <div class="row border-top">
+    <div class="col-5 p py-2">所属グループ</div>
+    <div class="col-7 p py-2"><%= character.genre.name %></div>
+  </div>
+  <div class="row border-top">
+    <div class="col-5 p py-2"></div>
+    <div class="col-7 p py-2"><%= character.reference_destination %></div>
+  </div>
+  <div class="row border-top">
+    <div class="col-5 p py-2">コメント数</div>
+    <div class="col-7 p py-2 comment-count"><%= render "public/comments/count", comments: @comments_count %></div>
+  </div>
+</div>

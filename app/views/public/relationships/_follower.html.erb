@@ -1,15 +1,16 @@
-<div class="container">
-  <h3><%= customer.name %>のフォロワー数</h3>
-  <div class="row d-flex flex-wrap">
-    <% customers.each do |customer| %>
-      <div class=" col-4 flex-wrap">
-        <%= image_tag customer.get_profile_image(200, 200) %>
-        <p class="text-left text-dark">名前:  <%= customer.name %></p>
-        <p class="text-left text-dark">コメント数:  <%= customer.comments.count %>件</p>
-        <%= link_to "詳細",  admin_customer_path(customer.id) %> |
-      </div>
-    <% end %>
-  </div>
+<div class="row d-flex flex-wrap">
+  <% customers.each do |customer| %>
+    <div class="col-lg-4 col-sm-6 flex-wrap text-center mb-3">
+      <%= image_tag customer.get_profile_image(200, 200), class: "text-center rounded-circle" %>
+      <p class=" text-dark">名前:  <%= customer.name.truncate(13) %></p>
+      <p class=" text-dark">コメント数:  <%= customer.comments.count %>件</p>
+      <% if customer_signed_in? %>
+        <%= link_to "詳細",  customer_path(customer.id) %> |
+      <% else %>
+        <%= link_to "詳細",  admin_customer_path(customer.id) %>
+      <% end %>
+    </div>
+  <% end %>
 </div>
 <div class="row justify-content-center">
   <%= paginate customers %>

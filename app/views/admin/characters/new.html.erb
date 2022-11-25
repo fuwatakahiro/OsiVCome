@@ -1,8 +1,8 @@
-<%= render 'layouts/errors', obj: @character %>
 <div class="container px-0">
-  <div class="row mt-3">
-    <h3>キャラクター新規登録</h3>
+  <div class="row pt-3">
+    <h3 class="mx-4">キャラクター新規登録</h3>
   </div>
+  <%= render 'layouts/errors', obj: @character %>
   <div class="row d-flex justify-content-center">
     <%= form_with model: @character, url: admin_characters_path, method: :post do |f| %>
       <div class="form-group row">

@@ -33,7 +33,9 @@ class Admin::CharactersController < ApplicationController
   def show
    @character = Character.find(params[:id])
   end
+  
   private
+  
   def character_params
     params.require(:character).permit(:character_image, :greeting, :name, :genre_id, :reference_destination)
   end
