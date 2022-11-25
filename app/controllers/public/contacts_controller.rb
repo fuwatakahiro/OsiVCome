@@ -37,4 +37,7 @@ class Public::ContactsController < ApplicationController
   def notification_params
     params.require(:notification).permit(:contact_id, :checked)
   end
+  def notification_params
+    params.require(:notification).permit(:contact_id, :checked)
+  end
 end
