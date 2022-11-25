@@ -1,10 +1,10 @@
 class Character < ApplicationRecord
   validates :name,presence: true
   validates :greeting,presence: true
-  validates :genre_id,presence: true
   validates :reference_destination,presence: true
   validates :character_image,presence: true
   has_one_attached :character_image
+
   has_many :comments, dependent: :destroy
   belongs_to :genre
 

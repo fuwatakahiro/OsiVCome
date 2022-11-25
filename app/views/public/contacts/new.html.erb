@@ -4,18 +4,24 @@
     <%= form_with model: @contact, url: confirm_path, method: :post do |f| %>
     <%= render "layouts/errors", obj: @contact %>
   <div class="form-group row">
-    <%= f.label :name, 'お名前*', class: "col-lg-5" %>
-    <%= f.text_field :name, placeholder: "ユーザー名", autofocus: true, class: 'form-control', class: "col-lg-7 form-control" %>
+    <%= f.label :name, 'お名前*', class: "col-lg-3" %>
+    <%= f.text_field :name, placeholder: "ユーザー名", autofocus: true, class: 'form-control', class: "col-lg-9 form-control" %>
   </div>
 
   <div class="form-group row">
-    <%= f.label :message, 'メッセージ*', class: "col-lg-5" %>
-    <%= f.text_area :message, size: '50x10', placeholder: "キャラクターの追加などのご要望を記述して下さい", class: 'form-control', class: "col-lg-7 form-control" %>
+    <%= f.label :message, 'メッセージ*', class: "col-lg-3" %>
+    <%= f.text_area :message, size: '50x10', placeholder: "キャラクターの追加などのご要望を記述して下さい", class: 'form-control', class: "col-lg-9 form-control" %>
   </div>
 
   <div class="text-center">
     <%= f.submit '入力内容確認', class: "btn btn-success" %>
   </div>
 <% end %>
+  </div>
+  <div class="mt-4">
+    <p class="text-center">
+      キャラクター追加の場合は、追加するまでに2日かかる場合があります。<br>
+      すぐに推し活を記載したい方は、キャラクター名「その他」にお願いします。
+    </p>
   </div>
 </div>

@@ -1,22 +1,20 @@
 <div class="container">
-  <div class="row">
-    <table class="table">
-      <thead>
-        <tr>
-          <th>名前</th>
-          <th>内容</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @contacts.each do |contact| %>
-        <tr>
-          <td><%= contact.name %></td>
-          <td><%= contact.message %></td>
-        </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
+    <div class="py-5">
+      <div class="row">
+        <div class="col-2">名前</div>
+        <div class="col-4">内容</div>
+        <div class="col-4">問い合わせ時間</div>
+        <div class="col-2">見た時間</div>
+      </div>
+      <% @contacts.each do |contact| %>
+        <div class="row border-top">
+          <div class="col-2 py-2"><%= contact.name %></div>
+          <div class="col-4 py-2"><%= contact.message %></div>
+          <div class="col-4 py-2"><%= contact.created_at %></div>
+          <div class="col-2 py-2"><%= contact.updated_at %></div>
+        </div>
+      <% end %>
+    </div>
   <div class="row justify-content-center">
     <%= paginate @contacts %>
   </div>

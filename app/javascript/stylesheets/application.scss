@@ -9,10 +9,50 @@ header {
 main{
   min-height: calc(100vh - 56px - 136px);
   background-color: #EEEEEE;
-  // padding-bottom: 100px;
 }
 
 footer {
   background-color:#3399FF;
   margin:0;
+}
+
+.new-btn {
+  position: relative;
+  display: inline-block;
+  background-color: white;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  box-shadow: 0px 3px 4px 0 grey;
+}
+.new-aikon {
+  position: absolute;
+  top: 19px;
+  right: 0;
+  left: 12px;
+  margin: auto;
+  font-size: 20px;
+  color:black;
+}
+.fa-plus {
+  position: absolute;
+  top: 9px;
+  right: 0;
+  left: 13px;
+  margin: auto;
+  color: black;
+  font-size: 17px;
+}
+.page-link {
+  background-color:#663333;
+  color:#FFFFFF;
+}
+.p {
+ font-weight: bold;
+}
+.field_with_errors {
+  display: contents;
+}
+.onpen {
+  display:none;
 }

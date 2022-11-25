@@ -2,11 +2,16 @@
   <div class='row'>
     <div class='col-md-4 mt-3'>
       <h3>自分</h3>
-      <%= render "info", customer: current_customer %>
+      <%= render "public/customers/info", customer: current_customer %>
     </div>
     <div class='col-md-7 offset-md-1'>
-      <h3 class="mt-3">ユーザー一覧</h3>
-      <%= link_to "コメントランキング", customers_path({rank: "desc"}) %>
+      <% if params[:rank] %>
+        <h3 class="mt-3">ランキング多い順</h3>
+        <%= link_to "ユーザー一覧", customers_path %>
+      <% else %>
+        <h3 class="mt-3">ユーザー一覧</h3>
+        <%= link_to "コメントランキング", customers_path({rank: "desc"}) %>
+      <% end %>
       <%= render "index", customers: @customers %>
       <div class="row justify-content-center">
         <%= paginate @customers %>

@@ -1,1 +1,4 @@
-<%= render "follower", customer: @customer, customers: @customers %>
+<div class="container">
+  <h3><%= @customer.name %>のフォローしたユーザー</h3>
+  <%= render "follower", customer: @customer, customers: @customers %>
+</div>

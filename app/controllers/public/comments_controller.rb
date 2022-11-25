@@ -5,12 +5,16 @@ class Public::CommentsController < ApplicationController
     @comment.character_id = @character.id
     @comment.save
     @comments = @character.comments
+    flash[:notice] = "コメントしました"
+    redirect_to request.referer
   end
   def destroy
     @character = Character.find(params[:character_id])
+    @comments = @character.comments
     @comment = Comment.find_by(id: params[:id], character_id: params[:character_id])
     @comment.destroy
-    @comments = @character.comments
+    flash[:notice] = "コメントを削除しました"
+    redirect_to request.referer
   end
 
   private
