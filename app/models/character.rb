@@ -7,15 +7,17 @@ class Character < ApplicationRecord
 
   has_many :comments, dependent: :destroy
   belongs_to :genre
-
+#画像の大きさをrails側で行うため
   def get_character_image(width, height)
-    unless character_image.attached?
-      file_path = Rails.root.join('app/assets/images/no_image.jpeg')
-      character_image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
-    end
     character_image.variant(resize_to_fill: [width, height], gravity: :center).processed
   end
+  #キャラクターの名前をあてにして探している
   def self.search_for(content)
-    Character.where("name LIKE?", "%#{content}%")
+    Character.where("name LIKE?", "%#{content}%").page(params[:page]).per(8)
+  end
+#キャラクター詳細の名前の横にアイコンをランダムで出すための
+  def name_icon
+    icon = ["人物アイコン (1).png","人物アイコン (2).png","人物アイコン (3).png","人物アイコン.png"]
+    icon.sample
   end
 end
