@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Public::SessionsController < Devise::SessionsController
-  before_action :reject_customer, only: [:create]
+  before_action :reject_customer, only: :create
 
   # GET /resource/sign_in
   # def new
