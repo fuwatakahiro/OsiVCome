@@ -19,9 +19,13 @@
         </div>
         <% @comments.each do |comment| %>
           <div class="row border-top">
-            <div class="col-5 py-2 px-0"><%= link_to comment.character.name, character_path(comment.character.id), class: "text-info" %></div>
-            <div class="col-5 py-2 px-0"><%= comment.content %></div>
-            <div class="col-2 py-2 px-0"><%= link_to "削除", character_comment_path(comment.character.id, comment.id), method: :delete, data: { confirm: 'コメントを消しますか？' }, class: "btn btn-danger" %></div>
+            <div class="col-5 py-3 px-0"><%= link_to comment.character.name, character_path(comment.character.id), class: "text-info" %></div>
+            <div class="col-5 py-3 px-0"><%= comment.content %></div>
+            <div class="col-2 py-3 px-0">
+              <% if comment.customer_id == current_customer.id %>
+              <%= link_to "削除", character_comment_path(comment.character.id, comment.id), method: :delete, data: { confirm: 'コメントを消しますか？' }, class: "btn btn-danger" %>
+              <% end %>
+              </div>
           </div>
         <% end %>
       </div>
