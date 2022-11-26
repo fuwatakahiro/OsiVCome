@@ -11,9 +11,6 @@ Rails.application.routes.draw do
  devise_scope  :customer do
     post "/guest_sign_in" => "public/sessions#new_guest"
   end
-  devise_scope  :admin do
-    post "/admin/guest_sign_in" => "admin/sessions#new_guest"
-  end
 
    scope module: :public do
      get "/genres" => "genres#index"

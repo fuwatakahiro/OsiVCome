@@ -28,11 +28,4 @@ class Admin::SessionsController < Devise::SessionsController
     flash[:notice] = "ユーザーログインしました"
     admin_customers_path
   end
-
-  def new_guest
-    admin = Admin.guest
-    sign_in admin
-    flash[:notice] = "ゲスト管理人ログインをしました"
-    redirect_to admin_customers_path
-  end
 end
