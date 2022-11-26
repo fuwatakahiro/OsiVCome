@@ -1,17 +1,14 @@
 class Public::CommentsController < ApplicationController
   before_action :character_comments, only: [:create, :destroy]
+   before_action :ensure_correct_commenter,only: :destroy
   def create
-    # @character = Character.find(params[:character_id])
     @comment = current_customer.comments.new(comment_params)
     @comment.character_id = @character.id
     @comment.save
-    # @comments = @character.comments
     flash[:notice] = "コメントしました"
     redirect_to request.referer
   end
   def destroy
-    # @character = Character.find(params[:character_id])
-    # @comments = @character.comments
     @comment = Comment.find_by(id: params[:id], character_id: params[:character_id])
     @comment.destroy
     flash[:notice] = "コメントを削除しました"
@@ -26,5 +23,12 @@ class Public::CommentsController < ApplicationController
   def character_comments
     @character = Character.find(params[:character_id])
     @comments = @character.comments
+  end
+  def ensure_correct_commenter
+    @comment = Comment.find(params[:id])
+    unless @comment.customer_id == current_customer.id
+      flash[:notice] = "他のユーザーは消去できません"
+      redirect_to request.referer
+    end
   end
 end
