@@ -36,7 +36,7 @@ Rails.application.routes.draw do
     root to: "homes#top"
      resources :characters, except: :destroy
      resources :customers, only: [:index, :show, :edit, :update]
-     resources :contacts, only: [:index, :create]
+     resources :contacts, only: [:index, :update]
      resources :genres, only: [:create, :destroy]
    end
 end
