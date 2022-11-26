@@ -3,6 +3,7 @@ class Comment < ApplicationRecord
   belongs_to :character
   has_many :favorites, dependent: :destroy
   validates :content, presence: true
+  #コメントに対していいねがあるかないかを確認
   def favorited_by?(customer)
     favorites.exists?(customer_id: customer.id)
   end

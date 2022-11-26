@@ -10,8 +10,8 @@
         <div class="row border-top">
           <div class="col-2 py-2"><%= contact.name %></div>
           <div class="col-4 py-2"><%= contact.message %></div>
-          <div class="col-4 py-2"><%= contact.created_at %></div>
-          <div class="col-2 py-2"><%= contact.updated_at %></div>
+          <div class="col-4 py-2"><%= l contact.created_at, format: :short %></div>
+          <div class="col-2 py-2"><%= l contact.updated_at, format: :short %></div>
         </div>
       <% end %>
     </div>

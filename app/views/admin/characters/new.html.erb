@@ -18,7 +18,7 @@
         <%= f.text_field :greeting, placeholder: "挨拶", class: "col-lg-9 form-control" %>
       </div>
       <div class="row form-group">
-        <%= f.label :ジャンル, class: "col-lg-3 col-form-label" %>
+        <%= f.label :グループ, class: "col-lg-3 col-form-label" %>
         <%= f.select :genre_id,  options_from_collection_for_select(Genre.all, :id, :name), include_blank: '選択してください', class: "col-lg-9 form-control" %>
       </div>
       <div class="row form-group">
