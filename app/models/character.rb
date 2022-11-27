@@ -13,7 +13,7 @@ class Character < ApplicationRecord
   end
   #キャラクターの名前をあてにして探している
   def self.search_for(content)
-    Character.where("name LIKE?", "%#{content}%").page(params[:page]).per(8)
+    Character.where("name LIKE?", "%#{content}%")
   end
 #キャラクター詳細の名前の横にアイコンをランダムで出すための
   def name_icon

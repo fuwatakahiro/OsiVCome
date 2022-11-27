@@ -211,23 +211,6 @@ ja:
       previous: "&lsaquo; 前"
       next: "次 &rsaquo;"
       truncate: "..."
-  activerecord:
-    attributes:
-      character:
-        name: "名前"
-        greeting: "挨拶"
-        genre: "ジャンル"
-        reference_destination: "引用先"
-        character_image: "画像"
-  activerecord:
-    attributes:
-      contact:
-        name: "名前"
-        message: "メッセージ"
-  activerecord:
-    attributes:
-      customer:
-        introduction: "自己紹介"
     time:
     formats:
       default: "%Y/%m/%d %H:%M"
@@ -240,8 +223,8 @@ ja:
         reference_destination: "引用先"
         character_image: "画像"
         genre: "グループ"
-  activerecord:
-    attributes:
       contact:
         name: "名前"
         message: "メッセージ"
+      customer:
+        introduction: "自己紹介"

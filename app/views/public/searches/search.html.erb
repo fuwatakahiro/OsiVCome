@@ -2,8 +2,14 @@
 <% if @model == 'character' %>
 	<h3>"<%= @content %>"での検索結果</h3>
   <%= render 'public/characters/index', characters: @records %>
+  <div class="row justify-content-center">
+    <%= paginate @records %>
+      </div>
 <% elsif @model == 'customer' %>
 	<h3>"<%= @content %>"での検索結果</h3>
   <%= render 'public/customers/index', customers: @records %>
+  <div class="row justify-content-center">
+    <%= paginate @records %>
+  </div>
 <% end %>
 </div>
