@@ -1,22 +1,21 @@
 class Public::ContactsController < ApplicationController
+  before_action :authenticate_customer!
+  before_action :form_contact, only: [:confirm, :back, :create]
   def new
     @contact = Contact.new
   end
 
   def confirm
-    @contact = Contact.new(contact_params)
     if @contact.invalid?
       render :new
     end
   end
 
   def back
-    @contact = Contact.new(contact_params)
     render :new
   end
 
   def create
-    @contact = Contact.new(contact_params)
     if @contact.save
       ContactMailer.send_mail(@contact).deliver_now
       notification = Notification.new
@@ -37,7 +36,7 @@ class Public::ContactsController < ApplicationController
   def notification_params
     params.require(:notification).permit(:contact_id, :checked)
   end
-  def notification_params
-    params.require(:notification).permit(:contact_id, :checked)
+  def form_contact
+     @contact = Contact.new(contact_params)
   end
 end

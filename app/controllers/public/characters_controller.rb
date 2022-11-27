@@ -1,4 +1,5 @@
 class Public::CharactersController < ApplicationController
+    before_action :authenticate_customer!
   def index
     @genres = Genre.all
     if params[:genre_id]
@@ -10,11 +11,10 @@ class Public::CharactersController < ApplicationController
   def show
     @character = Character.find(params[:id])
     @comment =Comment.new
-    @comments = @character.comments.page(params[:page]).per(5)
-    @comments_count =  @character.comments
+    @comments = @character.comments.order("created_at DESC").page(params[:page])
     if params[:rank] == "desc"
       #TODO: Comment.find_each {|i| Comment.reset_counters(i.id, :favorites)}
-      @comments = @comments.order('favorites_count DESC').page(params[:page])
+      @comments = @character.comments.order('favorites_count DESC').page(params[:page])
     end
   end
 end

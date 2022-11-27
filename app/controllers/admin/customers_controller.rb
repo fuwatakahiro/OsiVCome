@@ -1,18 +1,16 @@
 class Admin::CustomersController < ApplicationController
   before_action :authenticate_admin!
+  before_action :find_customer, only: [:show, :edit, :update]
   before_action :check_customer, only: :edit
   def index
     @customers = Customer.page(params[:page]).per(13)
   end
   def show
-    @customer = Customer.find(params[:id])
     @comments = @customer.comments.page(params[:page]).per(5)
   end
   def edit
-    @customer = Customer.find(params[:id])
   end
   def update
-    @customer = Customer.find(params[:id])
     if @customer.update(customer_params)
        flash[:notice] = "ユーザーを更新しました"
        redirect_to admin_customer_path(@customer)
@@ -32,5 +30,8 @@ class Admin::CustomersController < ApplicationController
       flash[:notice] = "ゲストユーザーは編集できません"
       redirect_to request.referer
     end
+  end
+  def find_customer
+    @customer = Customer.find(params[:id])
   end
 end

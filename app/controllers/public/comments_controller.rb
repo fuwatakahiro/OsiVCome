@@ -1,18 +1,15 @@
 class Public::CommentsController < ApplicationController
+  before_action :authenticate_customer!
   before_action :character_comments, only: [:create, :destroy]
    before_action :ensure_correct_commenter,only: :destroy
   def create
     @comment = current_customer.comments.new(comment_params)
     @comment.character_id = @character.id
     @comment.save
-    flash[:notice] = "コメントしました"
-    redirect_to request.referer
   end
   def destroy
     @comment = Comment.find_by(id: params[:id], character_id: params[:character_id])
     @comment.destroy
-    flash[:notice] = "コメントを削除しました"
-    redirect_to request.referer
   end
 
   private
@@ -22,7 +19,7 @@ class Public::CommentsController < ApplicationController
   end
   def character_comments
     @character = Character.find(params[:character_id])
-    @comments = @character.comments
+    @comments = @character.comments.page(params[:page]).per(5)
   end
   def ensure_correct_commenter
     @comment = Comment.find(params[:id])

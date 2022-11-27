@@ -1,31 +1,35 @@
 class Public::RelationshipsController < ApplicationController
+    before_action :authenticate_customer!
+    before_action :find_customer, only: [:create, :destroy, :followings, :followers]
   def create
-    @btn_customer = Customer.find(params[:customer_id])
-    current_customer.follower(@btn_customer)
+    current_customer.follower(@customer)
     unless params[:follow]
-      @customer = current_customer
+      @customer_count = current_customer
     else
-      @customer = @btn_customer
+      @customer_count = @customer
     end
   end
-  
+
   def destroy
-    @btn_customer = Customer.find(params[:customer_id])
-    current_customer.unfollower(@btn_customer)
+    current_customer.unfollower(@customer)
     unless params[:follow]
-      @customer = current_customer
+      @customer_count = current_customer
     else
-      @customer = @btn_customer
+      @customer_count = @customer
     end
   end
-  
+
   def followings
-    @customer = Customer.find(params[:customer_id])
     @customers = @customer.followings.page(params[:page]).per(6)
   end
-  
+
   def followers
-    @customer = Customer.find(params[:customer_id])
     @customers = @customer.followers.page(params[:page]).per(6)
+  end
+
+  private
+
+  def find_customer
+    @customer = Customer.find(params[:customer_id])
   end
 end

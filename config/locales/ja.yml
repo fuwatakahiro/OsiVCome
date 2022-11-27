@@ -240,3 +240,8 @@ ja:
         reference_destination: "引用先"
         character_image: "画像"
         genre: "グループ"
+  activerecord:
+    attributes:
+      contact:
+        name: "名前"
+        message: "メッセージ"
