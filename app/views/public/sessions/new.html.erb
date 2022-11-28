@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row pt-3">
-    <h3>ログイン</h3>
+    <h3 class="pl-3">ログイン</h3>
   </div>
   <div class="row d-flex justify-content-center">
     <%= form_with model: resource, url: session_path(resource_name) do |f| %>
@@ -13,7 +13,7 @@
         <%= f.password_field :password, autocomplete: "current-password", class: "form-control col-lg-7" %>
       </div>
       <div class="actions text-center">
-        <%= f.submit "Log in", class: "col-lg-5 btn btn-secondary" %>
+        <%= f.submit "ログイン", class: "col-5 btn btn-secondary" %>
         <%= render "public/shared/links" %>
       </div>
     <% end %>

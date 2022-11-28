@@ -5,7 +5,10 @@
       <p class=" text-dark">名前:  <%= customer.name.truncate(13) %></p>
       <p class=" text-dark">コメント数:  <%= customer.comments.count %>件</p>
       <% if customer_signed_in? %>
-        <%= link_to "詳細",  customer_path(customer.id) %> |
+      <div class="row mx-auto">
+        <div id="relationship_buttons_<%= customer.id %>" class="col-5  ml-5 px-0"><%= render "public/relationships/btn", customer: customer %></div>
+        <div class="col-3 px-0"><%= link_to "詳細",  customer_path(customer.id, {follow: "followins"}), class: "btn btn-info" %></div>
+      </div>
       <% else %>
         <%= link_to "詳細",  admin_customer_path(customer.id) %>
       <% end %>
