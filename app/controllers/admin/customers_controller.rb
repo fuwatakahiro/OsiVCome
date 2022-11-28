@@ -3,10 +3,10 @@ class Admin::CustomersController < ApplicationController
   before_action :find_customer, only: [:show, :edit, :update]
   before_action :check_customer, only: :edit
   def index
-    @customers = Customer.page(params[:page]).per(13)
+    @customers = Customer.order("comments_count DESC").page(params[:page]).per(13)
   end
   def show
-    @comments = @customer.comments.page(params[:page]).per(5)
+    @comments = @customer.comments.order("favorites_count DESC").page(params[:page]).per(5)
   end
   def edit
   end
@@ -24,14 +24,14 @@ class Admin::CustomersController < ApplicationController
   def customer_params
     params.require(:customer).permit(:name, :email, :profile_image, :is_deleted, :profile_image)
   end
+  def find_customer
+    @customer = Customer.find(params[:id])
+  end
   def check_customer
     @customer = Customer.find(params[:id])
     if @customer.email == "guest@gmail.com"
       flash[:notice] = "ゲストユーザーは編集できません"
       redirect_to request.referer
     end
-  end
-  def find_customer
-    @customer = Customer.find(params[:id])
   end
 end

@@ -1,7 +1,9 @@
 class Admin::CharactersController < ApplicationController
   before_action :authenticate_admin!
+  before_action :find_character, only: [:edit, :update, :show]
   def index
-    @characters = Character.page(params[:page]).per(10)
+    #TODO:Character.find_each {|i| Character.reset_counters(i.id, :comments)}
+    @characters = Character.order("comments_count DESC").page(params[:page]).per(10)
     @genre = Genre.new
     @genres = Genre.all
   end
@@ -19,10 +21,8 @@ class Admin::CharactersController < ApplicationController
     end
   end
   def edit
-    @character = Character.find(params[:id])
   end
   def update
-    @character = Character.find(params[:id])
     if @character.update(character_params)
       flash[:notice] = "キャラクターを更新しました"
       redirect_to admin_character_path(@character)
@@ -31,12 +31,14 @@ class Admin::CharactersController < ApplicationController
     end
   end
   def show
-   @character = Character.find(params[:id])
   end
-  
+
   private
-  
+
   def character_params
     params.require(:character).permit(:character_image, :greeting, :name, :genre_id, :reference_destination)
+  end
+  def find_character
+    @character = Character.find(params[:id])
   end
 end
