@@ -29,7 +29,7 @@
 - JSライブラリ：jQuery
 - IDE：Cloud9
 ## ER図
-![ERfigure_image](/image/portfolio_ER.png)
+![ERfigure_image](assets/image/portfolio_ER.png)
 ## 機能一覧
 ### 基本機能
 - 各種CRUD処理
