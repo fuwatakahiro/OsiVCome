@@ -19,7 +19,11 @@ class Public::CommentsController < ApplicationController
   end
   def character_comments
     @character = Character.find(params[:character_id])
-    @comments = @character.comments.page(params[:page]).per(5)
+    if params[:rank] == "desc"
+      @comments = @character.comments.order("favorites_count DESC").page(params[:page]).per(5)
+    else
+    @comments = @character.comments.order("created_at DESC").page(params[:page]).per(5)
+    end
   end
   def ensure_correct_commenter
     @comment = Comment.find(params[:id])

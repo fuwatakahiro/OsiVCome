@@ -14,7 +14,11 @@
     <div class="col-2 col-lg-2">
       <div class="destroy_btn_<#%= comment.id %>">
         <% if comment.customer_id ==  current_customer.id %>
-          <%= link_to "削除", character_comment_path(comment.character.id, comment.id),remote: true, method: :delete, data: { confirm: 'コメントを消しますか？' }, class: "btn btn-danger" %>
+          <% if params[:rank]  %>
+            <%= link_to "削除", character_comment_path(comment.character.id, comment.id, {rank: "desc"}),remote: true, method: :delete, data: { confirm: 'コメントを消しますか？' }, class: "btn btn-danger" %>
+          <% else %>
+            <%= link_to "削除", character_comment_path(comment.character.id, comment.id),remote: true, method: :delete, data: { confirm: 'コメントを消しますか？' }, class: "btn btn-danger" %>
+          <% end %>
         <% end %>
       </div>
     </div>
