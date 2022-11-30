@@ -36,7 +36,7 @@ class Public::CustomersController < ApplicationController
 
   def check_guest
     if current_customer.email == "guest@gmail.com"
-     flash[:notice]="ゲストログイン編集できません"
+     flash[:notice]="ゲストユーザーは編集できません"
      redirect_to customers_path
     end
   end

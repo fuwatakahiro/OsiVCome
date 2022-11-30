@@ -1,7 +1,9 @@
 <div class="container">
   <div class="row pt-3">
     <h3 class="col-7">問い合わせ一覧</h3>
-    <div class="col-5">確認していない数:<%= @unchecked_notifications.count %></div>
+    <div class="col-5 count">
+      <%= render "admin/contacts/count", unchecked_notifications: @unchecked_notifications %>
+    </div>
   </div>
     <div class="py-4">
       <div class="row">
@@ -9,23 +11,9 @@
         <div class="col-6">内容</div>
         <div class="col-3">時間</div>
       </div>
-      <% @contacts.each do |contact| %>
-        <div class="row border-top">
-          <% if contact.notifications.where(checked: false).count > 0 %>
-          　<div class="w-100">
-          　  <%= link_to admin_contact_path(contact.id), method: :patch, class: "d-flex inline-block" do %>
-              <div class="col-3 d-flex inline-block"><%= contact.name %></div>
-              <div class="col-6 d-flex inline-block"><%= contact.message %></div>
-              <div class="col-3 d-flex inline-block"><%= l contact.created_at, format: :short %></div>
-            <% end %>
-          　</div>
-          <% else %>
-            <div class="col-3 py-3"><%= contact.name %></div>
-            <div class="col-6 py-3"><%= contact.message %></div>
-            <div class="col-3 py-3"><%= l contact.created_at, format: :short %></div>
-          <% end %>
-        </div>
-      <% end %>
+      <div class="checked_update">
+        <%= render "check", contacts: @contacts %>
+      </div>
     </div>
   <div class="row justify-content-center">
     <%= paginate @contacts %>

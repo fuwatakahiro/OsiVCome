@@ -17,7 +17,7 @@ class Admin::CharactersController < ApplicationController
       flash[:notice]="新しいキャラクターを生成しました"
       redirect_to admin_character_path(@character)
     else
-      render :new
+      render "error"
     end
   end
   def edit
