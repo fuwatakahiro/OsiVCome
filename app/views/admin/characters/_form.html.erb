@@ -1,7 +1,14 @@
-<%= form_with model: character, url: admin_characters_path, method: :post,local: false do |f| %>
+<%= form_with model: character,url: admin_characters_path, method: :post do |f| %>
   <div class="form-group row">
     <%= f.label :画像,class: "col-lg-3 col-form-label" %>
-    <%= f.file_field :character_image, accept: "image/*", class: "col-lg-9" %>
+    <%= f.file_field :character_image, accept: "image/*", class: "col-lg-9 prev-content-file" %>
+  </div>
+  <div class="prev-contents">
+    <% if character.character_image.attached? %>
+      <div class="prev-content">
+        <%= image_tag character.get_character_image(100,100), class: "prev-image" %>
+      </div>
+    <% end %>
   </div>
   <div class="row form-group">
     <%= f.label :名前,class: "col-lg-3 col-form-label" %>
