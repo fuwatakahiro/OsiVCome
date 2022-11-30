@@ -35,13 +35,8 @@
             <i class="fa-solid fa-otter"></i>キャラクター一覧
           <% end %>
         </li>
-        <li class="nav-item active" style="position:relative">
-          <% if @unchecked_notifications.any? %>
-            <i class="fa-sharp fa-solid fa-circle device-alert" ></i>
-          <% end %>
-          <%= link_to  admin_contacts_path, class: "nav-link" do %>
-            <i class="fa-regular fa-bell" ></i>通知
-          <% end %>
+        <li class="nav-item active check" style="position:relative">
+          <%= render "layouts/checked", unchecked_notifications: @unchecked_notifications %>
         </li>
         <li class="nav-item active">
           <%= link_to  admin_customers_path, class: "nav-link" do %>

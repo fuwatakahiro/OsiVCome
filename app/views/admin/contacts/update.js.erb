@@ -1,2 +1,3 @@
+$(".check").html("<%= j(render "layouts/checked", unchecked_notifications: @unchecked_notifications) %>");
 $(".count").html("<%= j(render "admin/contacts/count", unchecked_notifications: @unchecked_notifications) %>");
 $(".checked_update").html("<%= j(render "admin/contacts/check", contacts: @contacts) %>");
