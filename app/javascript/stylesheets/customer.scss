@@ -1,13 +1,14 @@
 .device-alert {
   position: absolute;
     top: 10px;
-    font-size: 9px;
+    left: 5px;
+    font-size: 10px;
 }
 @media (min-width: 768px) {
   .device-alert {
     position: absolute;
     top: 9px;
-    left: 5px;
-    font-size: 9px;
+    left: 12px;
+    font-size: 11px;
   }
 }

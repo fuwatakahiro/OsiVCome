@@ -1,4 +1,7 @@
-<%= form_with model: character,url: admin_characters_path, method: :post do |f| %>
+<%= form_with model: character,url: admin_characters_path, local: false, method: :post do |f| %>
+  <div class="error_message ">
+    <%= render 'layouts/errors', obj: character %>
+  </div>
   <div class="form-group row">
     <%= f.label :画像,class: "col-lg-3 col-form-label" %>
     <%= f.file_field :character_image, accept: "image/*", class: "col-lg-9 prev-content-file" %>

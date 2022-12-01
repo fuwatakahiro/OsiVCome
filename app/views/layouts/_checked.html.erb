@@ -1,5 +1,5 @@
-<% if unchecked_notifications.any? %>
-  <i class="fa-sharp fa-solid fa-circle device-alert" ></i>
+<% if Notification.unchecked_notifications.any? %>
+  <i class="fa-sharp fa-solid fa-circle device-alert"></i>
 <% end %>
 <%= link_to  admin_contacts_path, class: "nav-link" do %>
   <i class="fa-regular fa-bell" ></i>通知

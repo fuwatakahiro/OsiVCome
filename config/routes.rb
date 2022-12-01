@@ -32,7 +32,9 @@ Rails.application.routes.draw do
    namespace :admin do
     root to: "homes#top"
      resources :characters, except: :destroy
-     resources :customers, only: [:index, :show, :edit, :update]
+     resources :customers, only: [:index, :show, :edit, :update] do
+       resources :comments, only: :destroy
+     end
      resources :contacts, only: [:index, :update]
      resources :genres, only: [:create, :destroy]
    end

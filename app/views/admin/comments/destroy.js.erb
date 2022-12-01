@@ -1,0 +1,2 @@
+$(".comment_lists").html("<%= j(render "admin/comments/index", comments: @comments) %>");
+$(".comments_count").html("<%= j(render "admin/comments/count", customer: @customer) %>");

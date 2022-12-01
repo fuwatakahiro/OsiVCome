@@ -27,7 +27,7 @@ class Admin::CharactersController < ApplicationController
       flash[:notice] = "キャラクターを更新しました"
       redirect_to admin_character_path(@character)
     else
-      render :edit
+      render "error"
     end
   end
   def show

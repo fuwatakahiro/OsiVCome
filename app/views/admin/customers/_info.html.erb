@@ -10,7 +10,7 @@
   </div>
   <div class="row border-top">
     <div class="col-6 p pt-2">コメント数</div>
-    <div class="col-6 p py-2"><%= customer.comments.count %>件</div>
+    <div class="col-6 p py-2 comments_count"><%= render "admin/comments/count", customer: customer %></div>
   </div>
   <div class="row border-top">
     <div class="col-6 p mx-0 p py-2">フォロー数</div>
