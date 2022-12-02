@@ -219,6 +219,8 @@ ja:
     attributes:
       character:
         name: "名前"
+        birth_day: "誕生日"
+        birth_month: "誕生月"
         greeting: "挨拶"
         reference_destination: "引用先"
         character_image: "画像"

@@ -3,6 +3,8 @@ class Character < ApplicationRecord
   validates :greeting,presence: true
   validates :reference_destination,presence: true
   validates :character_image,presence: true
+  validates :birth_day,presence: true
+  validates :birth_month,presence: true
   has_one_attached :character_image
 
   has_many :comments, dependent: :destroy
