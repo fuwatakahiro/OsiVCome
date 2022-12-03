@@ -23,6 +23,9 @@
           <% end %>
         </li>
         <li class="nav-item active">
+          <%= link_to "問い合わせ履歴", contacts_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item active">
           <%= link_to  destroy_customer_session_path, method: :delete, class: "nav-link" do %>
             <i class="fas fa-sign-out-alt"></i>ログアウト
           <% end %>

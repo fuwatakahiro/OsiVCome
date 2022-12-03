@@ -1,9 +1,9 @@
 <div class="row mx-sm-auto">
-  <div class="col-lg-7 border border-secondary text-center ">ジャンル検索</div>
+  <div class="col-lg-7 border border-secondary text-center col-11 mx-auto">ジャンル検索</div>
 </div>
 <% genres.each do |genre| %>
   <div class="row">
-    <div class="col-lg-7 border border-secondary pt-2 text-center">
+    <div class="col-lg-7 border border-secondary pt-2 text-center col-11 mx-auto">
       <%= link_to genre.name, characters_path(genre_id: genre.id) %>
     </div>
   </div>

@@ -1,6 +1,9 @@
 class Public::ContactsController < ApplicationController
   before_action :authenticate_customer!
   before_action :form_contact, only: [:confirm, :back, :create]
+  def index
+    @notifications = Notification.where(customer_id: current_customer).order("created_at DESC").page(params[:page])
+  end
   def new
     @contact = Contact.new
   end
@@ -19,6 +22,7 @@ class Public::ContactsController < ApplicationController
     if @contact.save
       ContactMailer.send_mail(@contact).deliver_now
       notification = Notification.new
+      notification.customer_id = current_customer.id
       notification.contact_id =@contact.id
       notification.save(checked: false)
       flash[:notice] = "お問合せを送りました"
@@ -31,10 +35,7 @@ class Public::ContactsController < ApplicationController
   private
 
   def contact_params
-    params.require(:contact).permit(:name, :message)
-  end
-  def notification_params
-    params.require(:notification).permit(:contact_id, :checked)
+    params.require(:contact).permit(:title, :message, :customer_id)
   end
   def form_contact
      @contact = Contact.new(contact_params)

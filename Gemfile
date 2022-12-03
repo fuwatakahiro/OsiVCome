@@ -60,6 +60,7 @@ gem 'jquery-rails'
 gem 'kaminari','~> 1.2.1'
 gem "dotenv-rails"
 gem 'counter_culture'
+gem "enum_help"
 
 group :production do
   gem 'mysql2'

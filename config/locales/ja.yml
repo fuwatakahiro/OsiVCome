@@ -226,7 +226,12 @@ ja:
         character_image: "画像"
         genre: "グループ"
       contact:
-        name: "名前"
+        title: "タイトル"
         message: "メッセージ"
       customer:
         introduction: "自己紹介"
+  enums:
+    notification:
+      checked:
+        uncheck: "確認中"
+        check: "確認済み"

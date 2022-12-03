@@ -3,14 +3,15 @@
   <div class="row d-flex justify-content-center">
     <%= form_with model: @contact, url: confirm_path, method: :post do |f| %>
     <%= render "layouts/errors", obj: @contact %>
+    <%= f.hidden_field :customer_id, :value => current_customer.id %>
   <div class="form-group row mx-0">
-    <%= f.label :name, 'お名前*', class: "col-lg-3" %>
-    <%= f.text_field :name, placeholder: "ユーザー名", autofocus: true, class: "col-lg-9 form-control" %>
+    <%= f.label :title, 'タイトル*', class: "col-lg-3" %>
+    <%= f.text_field :title, placeholder: "vtuberの追加について", autofocus: true, class: "col-lg-9 form-control col-11 mx-auto" %>
   </div>
 
   <div class="form-group row mx-0">
     <%= f.label :message, 'メッセージ*', class: "col-lg-3" %>
-    <%= f.text_area :message, size: '50x10', placeholder: "キャラクターの追加などのご要望を記述して下さい",  class: "col-lg-9 form-control" %>
+    <%= f.text_area :message, size: '50x10', placeholder: "キャラクターの追加などのご要望を記述して下さい",  class: "col-lg-9 form-control col-11 mx-auto" %>
   </div>
 
   <div class="text-center">

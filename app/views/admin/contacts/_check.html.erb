@@ -3,13 +3,13 @@
     <% if contact.notifications.where(checked: false).count > 0 %>
       <div class="w-100 d-inline-block">
         <%= link_to admin_contact_path(contact.id), method: :patch, remote: true, class: "d-flex inline-block" do %>
-          <div class="col-3 py-3 d-flex inline-block"><%= contact.name %></div>
+          <div class="col-3 py-3 d-flex inline-block"><%= contact.title %></div>
           <div class="col-6 py-3 d-flex inline-block"><%= contact.message %></div>
           <div class="col-3 py-3 d-flex inline-block"><%= l contact.created_at, format: :short %></div>
         <% end %>
       </div>
     <% else %>
-      <div class="col-3 py-3"><%= contact.name %></div>
+      <div class="col-3 py-3"><%= contact.title %></div>
       <div class="col-6 py-3"><%= contact.message %></div>
       <div class="col-3 py-3"><%= l contact.created_at, format: :short %></div>
     <% end %>

@@ -1,5 +1,6 @@
 class Contact < ApplicationRecord
   has_many :notifications,dependent: :destroy
-  validates :name, presence: true
+  belongs_to :customer
+  validates :title, presence: true
   validates :message,presence: true
 end

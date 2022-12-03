@@ -1,0 +1,20 @@
+<div class="container">
+  <h3 class="py-3">問い合わせ履歴一覧</h3>
+  <div class="row py-2">
+    <div class="col-3">時間</div>
+    <div class="col-3">タイトル</div>
+    <div class="col-3">ステータス</div>
+    <div class="col-3">メッセージ</div>
+  </div>
+  <% @notifications.each do |notification| %>
+    <div class="row border-top">
+      <div class="col-3 py-2"><%= l notification.created_at, format: :short %></div>
+      <div class="col-3 py-2"><%= notification.contact.title %></div>
+      <div class="col-3 py-2"><%= notification.checked_i18n %></div>
+      <div class="col-3 py-2"><%= notification.contact.message %></div>
+    </div>
+  <% end %>
+  <div class="d-flex justify-content-center">
+    <%= paginate @notifications %>
+  </div>
+</div>
