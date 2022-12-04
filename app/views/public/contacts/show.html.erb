@@ -1,0 +1,22 @@
+<div class="container">
+  <h3 class="py-4">問い合わせ詳細</h3>
+  <div class="text-center h4">
+    <div>タイトル</div>
+  </div>
+  <div class="py-2">
+    <div class="text-center py-3"><%= @contact.title %></div>
+  </div>
+  <div class="text-center">
+    <div class=" h4 pt-3">内容</div>
+  </div>
+  <div>
+    <div class="text-center pt-3 col-10 mx-auto"><%= @contact.message %></div>
+  </div>
+  <div class="text-center">
+    <div class="h4 pt-3">ステータス</div>
+  </div>
+  <div class="text-center pt-3"><%= @notification.checked_i18n %></div>
+  <div class="text-right pt-5">
+    <div>問い合わせ日時　<%= l @contact.created_at, format: :short %></div>
+  </div>
+</div>

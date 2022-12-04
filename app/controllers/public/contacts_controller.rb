@@ -4,6 +4,10 @@ class Public::ContactsController < ApplicationController
   def index
     @notifications = Notification.where(customer_id: current_customer).order("created_at DESC").page(params[:page])
   end
+  def show
+    @contact = Contact.find(params[:id])
+    @notification = Notification.find_by(contact_id: @contact.id)
+  end
   def new
     @contact = Contact.new
   end
@@ -13,7 +17,6 @@ class Public::ContactsController < ApplicationController
       render :new
     end
   end
-
   def back
     render :new
   end
