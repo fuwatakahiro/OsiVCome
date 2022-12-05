@@ -20,11 +20,11 @@ class Public::RelationshipsController < ApplicationController
   end
 
   def followings
-    @customers = @customer.followings.page(params[:page]).per(6)
+    @customers = @customer.followings.where(is_deleted: false).page(params[:page]).per(6)
   end
 
   def followers
-    @customers = @customer.followers.page(params[:page]).per(6)
+    @customers = @customer.followers.where(is_deleted: false).page(params[:page]).per(6)
   end
 
   private

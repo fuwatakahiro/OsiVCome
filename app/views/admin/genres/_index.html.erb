@@ -1,14 +1,14 @@
 <div class="mt-3">
-  <div class="row">
-    <div class="col-8 border-bottom border-dark">ジャンル名</div>
-    <div class="col-4 border-bottom border-dark"></div>
+  <div class="row border-bottom border-dark mx-auto">
+    <div class="col-7">ジャンル名</div>
+    <div class="col-5">個数:<%= @genres.count %>個</div>
   </div>
   <% genres.each do |genre| %>
-    <div class="row">
-      <div class="col-8">
+    <div class="row mx-auto">
+      <div class="col-7">
         <%= genre.name %>
       </div>
-      <div class="col-4"><%= link_to "削除", admin_genre_path(genre), method: :delete, remote: true %></div>
+      <div class="col-5 text-left"><%= link_to "削除", admin_genre_path(genre), method: :delete, remote: true %></div>
     </div>
   <% end %>
 </div>

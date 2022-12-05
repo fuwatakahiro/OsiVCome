@@ -3,7 +3,7 @@
     <div class='col-md-4 mt-3'>
       <h3><%=@customer.name %>の詳細</h3>
       <%= render "public/customers/info", customer: @customer %>
-      <% if customer_signed_in? %>
+      <% if customer_signed_in? && @customer.is_deleted == false %>
       <div id="relationship_buttons_<%= @customer.id %>">
         <%= render "public/relationships/btn", customer: @customer %>
       </div>
