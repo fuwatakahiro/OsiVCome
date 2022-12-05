@@ -14,9 +14,12 @@ Rails.application.routes.draw do
 
    scope module: :public do
      get "/genres" => "genres#index"
-     resources :contacts, only: [:index, :show, :new, :create]
-     post 'contacts/confirm', to: 'contacts#confirm', as: 'confirm'
-     post 'contacts/back', to: 'contacts#back', as: 'back'
+     resources :contacts, only: [:index, :show, :new, :create] do
+       collection do
+         post 'confirm'
+         post 'back'
+       end
+     end
      resources :characters, only: [:index, :show] do
        resources :comments, only:[:create, :destroy] do
          resource :favorites, only:[:create, :destroy]

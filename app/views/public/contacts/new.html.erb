@@ -1,7 +1,7 @@
 <div class="container">
   <h3>お問い合せフォーム</h3>
   <div class="row d-flex justify-content-center">
-    <%= form_with model: @contact, url: confirm_path, method: :post do |f| %>
+    <%= form_with model: @contact, url: confirm_contacts_path, method: :post do |f| %>
     <%= render "layouts/errors", obj: @contact %>
     <%= f.hidden_field :customer_id, :value => current_customer.id %>
   <div class="form-group row mx-0">
