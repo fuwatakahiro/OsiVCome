@@ -1,30 +1,18 @@
 <div class="container">
   <div class="row pt-3">
-    <h3>キャラクター一覧</h3>
-    <%= link_to new_admin_character_path, class: "ml-5 text-decoration-none " do %>
-        <div class="new-btn">
-          <i class="fa-solid fa-otter new-aikon"></i>
-          <i class="fas fa-plus"></i>
-        </div>
-  　　　　　<% end %>
+    <h3 class="col-lg-3 col-9 mb-0">キャラクター一覧</h3>
+    <%= link_to new_admin_character_path, class: "text-decoration-none col-lg-1 col-3" do %>
+      <div class="new-btn">
+        <i class="fa-solid fa-otter new-aikon"></i>
+        <i class="fas fa-plus"></i>
+      </div>
+  　<% end %>
+  　<div class="col-lg-3 mb-4"><%= render "admin/searches/form", characters: @characters %></div>
   </div>
   <div class="row">
     <div class="col-lg-8">
       <div class="my-4">
-        <div class="row">
-          <div class="col-2">id</div>
-          <div class="col-4">名前</div>
-          <div class="col-4">挨拶</div>
-          <div class="col-2">コメ数</div>
-        </div>
-        <% @characters.each do |character| %>
-          <div class="row border-top">
-            <div class="col-2 py-2"><%= character.id %></div>
-            <div class="col-4 py-2"><%= link_to character.name.truncate(13),  admin_character_path(character), class: "text-info" %></div>
-            <div class="col-4 py-2"><%= character.greeting %></div>
-            <div class="col-2 py-2"><%= character.comments.count %>件</div>
-          </div>
-        <% end %>
+        <%= render "admin/characters/index", characters: @characters %>
       </div>
       <div class="row justify-content-center">
       <%= paginate @characters %>

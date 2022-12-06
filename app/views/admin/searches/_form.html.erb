@@ -1,0 +1,21 @@
+<% if params[:customer] %>
+  <%= form_with url: admin_searches_path, method: :get do |f| %>
+    <%= f.hidden_field :model, :value => "customer" %>
+    <div class="input-group mx-auto">
+      <%= f.text_field :content, placeholder: "ユーザー名", class: "px-0" %>
+      <%= button_tag type: "submit", class: "btn rounded-0 input-group-btn pr-0" do %>
+        <i class="fa fa-search"></i>
+      <% end %>
+    </div>
+  <% end %>
+<% elsif characters.any? %>
+  <%= form_with url: admin_searches_path, method: :get do |f| %>
+    <%= f.hidden_field :model, :value => "character" %>
+    <div class="input-group">
+      <%= f.text_field :content, placeholder: "キャラクター名" %>
+      <%= button_tag type: "submit", class: "btn rounded-0 border-0 input-group-btn" do %>
+        <i class="fa fa-search"></i>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>

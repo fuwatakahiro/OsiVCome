@@ -40,5 +40,6 @@ Rails.application.routes.draw do
      end
      resources :contacts, only: [:index, :update]
      resources :genres, only: [:create, :destroy]
+     get "searches" => "searches#search"
    end
 end

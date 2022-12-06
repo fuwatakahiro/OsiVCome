@@ -42,7 +42,7 @@
           <%= render "layouts/checked" %>
         </li>
         <li class="nav-item active">
-          <%= link_to  admin_customers_path, class: "nav-link" do %>
+          <%= link_to  admin_customers_path({customer: "c"}), class: "nav-link" do %>
             <i class="fa-solid fa-user"></i>ユーザー一覧
           <% end %>
         </li>
