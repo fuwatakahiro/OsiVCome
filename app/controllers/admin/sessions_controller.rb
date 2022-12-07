@@ -26,6 +26,6 @@ class Admin::SessionsController < Devise::SessionsController
   # end
   def after_sign_in_path_for(resource)
     flash[:notice] = "ユーザーログインしました"
-    admin_customers_path
+    admin_customers_path({customer: "customer"})
   end
 end
