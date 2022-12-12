@@ -13,7 +13,6 @@ Rails.application.routes.draw do
   end
 
    scope module: :public do
-     get "/genres" => "genres#index"
      resources :contacts, only: [:index, :show, :new, :create] do
        collection do
          post 'confirm'
@@ -27,8 +26,8 @@ Rails.application.routes.draw do
      end
      resources :customers, only: [:index, :show, :edit, :update] do
        resource :relationships, only: [:create, :destroy]
-  	   get 'followings' => 'relationships#followings', as: 'followings'
-	   get 'followers' => 'relationships#followers', as: 'followers'
+  	    get 'followings' => 'relationships#followings', as: 'followings'
+	      get 'followers' => 'relationships#followers', as: 'followers'
      end
      get "/search" => "searches#search"
    end

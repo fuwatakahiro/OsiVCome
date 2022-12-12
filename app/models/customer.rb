@@ -12,7 +12,7 @@ class Customer < ApplicationRecord
   validates :email, presence: true
   validates :introduction, length: { maximum: 50 }
   has_one_attached :profile_image
-  #deveise側のメソッドでログインしていいのかを判断す
+  #deveise側のメソッドでログインしていいのかを判断する
   def active_for_authentication?
     super && !is_deleted
   end
