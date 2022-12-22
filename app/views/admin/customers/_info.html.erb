@@ -9,6 +9,10 @@
     <div class="col-7 p py-2"><%= customer.introduction %></div>
   </div>
   <div class="row border-top">
+    <div class="col-6 p pt-2">メールアドレス</div>
+    <div class="col-6 p py-2"><%= customer.email %></div>
+  </div>
+  <div class="row border-top">
     <div class="col-6 p pt-2">コメント数</div>
     <div class="col-6 p py-2 comments_count"><%= render "admin/comments/count", customer: customer %></div>
   </div>
