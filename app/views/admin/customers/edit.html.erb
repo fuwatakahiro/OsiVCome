@@ -2,7 +2,7 @@
   <h3 class="pt-3"><%= @customer.name %>の編集</h3>
   <div class="row d-flex justify-content-center">
     <%= form_with model: @customer, url: admin_customer_path, method: :patch do |f| %>
-    <%= render 'layouts/errors', obj: @customer %>
+      <%= render 'layouts/errors', obj: @customer %>
       <div class="form-group row">
         <%= f.label :画像, class: "col-lg-4 col-form-label" %>
         <%= f.file_field :profile_image, class: "col-lg-8" %>
