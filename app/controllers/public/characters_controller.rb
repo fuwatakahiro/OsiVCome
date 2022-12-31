@@ -10,6 +10,7 @@ class Public::CharactersController < ApplicationController
   end
   def show
     @character = Character.find(params[:id])
+    @group = Group.find_by(character_id: @character.id)
     @comment =Comment.new
     @comments = @character.comments.order("created_at DESC").page(params[:page])
     if params[:rank] == "desc"

@@ -235,7 +235,3 @@ ja:
       checked:
         uncheck: "確認中"
         check: "確認済み"
-  activerecord:
-    attributes:
-      customer:
-        password_confirmation: "パスワード確認"

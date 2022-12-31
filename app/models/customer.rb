@@ -8,6 +8,8 @@ class Customer < ApplicationRecord
   has_many :relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
   has_many :followings, through: :relationships, source: :followed
   has_many :contacts,dependent: :destroy
+  has_many :customer_groups, dependent: :destroy
+ 
   validates :name,presence: true
   validates :email, presence: true
   validates :introduction, length: { maximum: 50 }

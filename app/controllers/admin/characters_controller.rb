@@ -14,6 +14,9 @@ class Admin::CharactersController < ApplicationController
   def create
     @character = Character.new(character_params)
     if @character.save
+       group = Group.new
+       group.character_id = @character.id
+       group.save
       flash[:notice]="新しいキャラクターを生成しました"
       redirect_to admin_character_path(@character)
     else
