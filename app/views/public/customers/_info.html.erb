@@ -20,6 +20,10 @@
     <div class="col-5 p py-2">フォロワー数</div>
     <div class="col-7 followed-count p py-2"><%= render "public/customers/follower", customer: customer %></div>
   </div>
+  <div class="row border-top">
+    <div class="col-5 p py-2">最推しキャラ</div>
+    <div class="col-7 followed-count p py-2"><%= Customer.most_character(customer) %></div>
+  </div>
 </div>
 <% if customer.id == current_customer.id %>
   <div class="text-center w-sm-100">

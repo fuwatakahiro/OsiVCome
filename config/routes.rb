@@ -20,9 +20,9 @@ Rails.application.routes.draw do
        end
      end
      resources :characters, only: [:index, :show] do
-       resources :groups, only: [:show, :destroy] do
-         get "join" => "groups#join"
-      end
+       get "groups/:id" => "groups#show", as: "group"
+       delete "groups/:id" => "groups#destroy", as: "character_group"
+       get "groups/:id/join" => "groups#join", as: "group_join"
        resources :comments, only:[:create, :destroy] do
          resource :favorites, only:[:create, :destroy]
        end
