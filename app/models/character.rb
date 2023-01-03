@@ -7,7 +7,6 @@ class Character < ApplicationRecord
   validates :birth_month,presence: true
   has_one_attached :character_image
   has_many :comments, dependent: :destroy
-  has_many :groups
   belongs_to :genre
 #画像の大きさをrails側で行うため
   def get_character_image(width, height)
