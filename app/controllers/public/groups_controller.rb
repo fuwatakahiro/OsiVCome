@@ -12,10 +12,12 @@ class Public::GroupsController < ApplicationController
     else
       @group.customers << current_customer
     end
+     flash[:notice] = "最推しにしました"
     redirect_to character_path(@character)
   end
   def destroy
     @group.customers.delete(current_customer)
+    flash[:notice] = "最推しを解除しました"
     redirect_to character_path(@character)
   end
 
