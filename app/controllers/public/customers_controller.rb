@@ -24,7 +24,7 @@ class Public::CustomersController < ApplicationController
       flash[:notice]="ユーザー編集しました"
       redirect_to customer_path(@customer)
     else
-      render :edit
+      render "error"
     end
   end
 
