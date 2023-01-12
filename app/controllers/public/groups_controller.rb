@@ -10,9 +10,9 @@ class Public::GroupsController < ApplicationController
     if CustomerGroup.find_by(customer_id: current_customer.id)
       flash[:notice] = "最推しは１人までです"
     else
+      flash[:notice] = "最推しにしました"
       @group.customers << current_customer
     end
-     flash[:notice] = "最推しにしました"
     redirect_to character_path(@character)
   end
   def destroy
