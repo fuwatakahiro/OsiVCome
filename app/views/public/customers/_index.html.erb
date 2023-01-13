@@ -7,12 +7,12 @@
   </div>
   <% customers.each do |customer| %>
     <% if customer.is_deleted == false %>
-    <div class="row border-top">
-      <div class="col-3 py-2 px-0"><%= image_tag customer.get_profile_image(75,75), class: "rounded" %></div>
-      <div class="col-3 my-auto px-0"><%= link_to customer.name.truncate(13),customer_path(customer, {follow: "followins"}), class: "text-info" %></div>
-      <div class="col-3 my-auto px-0"><%= customer.comments.count %>件</div>
-      <div id="relationship_buttons_<%= customer.id %>" class="col-3 my-auto px-0"><%= render "public/relationships/btn", customer: customer %></div>
-    </div>
+      <div class="row border-top">
+        <div class="col-3 py-2 px-0"><%= image_tag customer.get_profile_image(75,75), class: "rounded" %></div>
+        <div class="col-3 my-auto px-0"><%= link_to customer.name.truncate(13),customer_path(customer, {follow: "followins"}), class: "text-info" %></div>
+        <div class="col-3 my-auto px-0"><%= customer.comments.count %>件</div>
+        <div id="relationship_buttons_<%= customer.id %>" class="col-3 my-auto px-0"><%= render "public/relationships/btn", customer: customer %></div>
+      </div>
     <% end %>
   <% end %>
 </div>

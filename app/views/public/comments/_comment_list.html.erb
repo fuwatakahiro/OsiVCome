@@ -10,7 +10,7 @@
         <div class="h6">キャラ:<%= comment.character_name %></div>
       <% end %>
     </div>
-    <div class="col-4 col-lg-5 mb-3"><%= comment.content %><div class="text-right"><%=  l comment.created_at, format: :short %></div></div>
+    <div class="col-4 col-lg-5 mb-3"><%= comment.content %><div class="text-right ml-2"><%=  l comment.created_at, format: :short %></div></div>
     <div class="col-3 mb-3 col-lg-2">
       <div class="favorite_buttons_<%= comment.id %>">
         <%= render "public/favorites/favorite", customer: current_customer, comment: comment %>
