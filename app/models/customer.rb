@@ -46,7 +46,7 @@ class Customer < ApplicationRecord
   def unfollower(customer)
     relationships.find_by(followed_id: customer.id).destroy
   end
-  #フォローしているかを確認
+  
   def following?(customer)
     followings.include?(customer)
   end
