@@ -9,7 +9,6 @@ class Public::RelationshipsController < ApplicationController
       @customer_count = @customer
     end
   end
-
   def destroy
     current_customer.unfollower(@customer)
     unless params[:follow]
@@ -18,11 +17,9 @@ class Public::RelationshipsController < ApplicationController
       @customer_count = @customer
     end
   end
-
   def followings
     @customers = @customer.followings.where(is_deleted: false).page(params[:page]).per(6)
   end
-
   def followers
     @customers = @customer.followers.where(is_deleted: false).page(params[:page]).per(6)
   end

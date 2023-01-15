@@ -11,7 +11,6 @@ class Public::ContactsController < ApplicationController
   def new
     @contact = Contact.new
   end
-
   def confirm
     if @contact.invalid?
       render :new
@@ -20,7 +19,6 @@ class Public::ContactsController < ApplicationController
   def back
     render :new
   end
-
   def create
     if @contact.save
       ContactMailer.send_mail(@contact).deliver_now

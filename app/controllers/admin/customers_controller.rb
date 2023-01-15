@@ -4,7 +4,6 @@ class Admin::CustomersController < ApplicationController
   before_action :check_customer, only: :edit
   def index
     @customers = Customer.order("comments_count DESC").page(params[:page]).per(13)
-    
   end
   def show
     @comments = @customer.comments.order("favorites_count DESC").page(params[:page]).per(5)
